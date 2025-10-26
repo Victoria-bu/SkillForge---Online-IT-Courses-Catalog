@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= course.title %></title>
+</head>
+
+<body>
+  <%- include('partials/header') %>
+
+  <main>
+    <article itemscope itemtype="https://schema.org/Course">
+      
+      <!-- Course's Title -->
+      <div class="course-main-details">
+         <h2 itemprop="name" data-i18n="courseTitle"><%= course.title %></h2>
+        <div class = "course-icons" aria-label="Course information">
+          <%- include('partials/level-icon', { level: course.level }) %>
+          <span aria-label="Skill level"><%= course.level %></span>
+          <span aria-label="Course duration">
+            <img src="/images/course-details-images/Time.svg" alt="Time icon"> <%= course.duration %>
+          </span>
+          <span aria-label="Course rating">
+            <img src="/images/course-details-images/Star.svg" alt="Star icon"> <%= course.rating %>
+          </span>
+          <span aria-label="Number of learners">
+            <img src="/images/course-details-images/learners.svg" alt="Learners icon"> <%= course.learners %>
+          </span>
+        </div>
+      </div>
+
+      <!-- Course description -->
+      <section class="course-description" aria-label="Course description">
+        <p itemprop="description" data-i18n="courseDescription"><%= course.description %></p>
+      </section>
+
+      <!-- Career path -->
+      <section class="career-path" aria-label="Career path section">
+        <h3 data-i18n="careerPath">Your Career Path</h3>
+        <img src="/images/course-details-images/doodle2.svg" alt="Decorative doodle">
+        <p><%= course.career %></p>
+      </section>
+
+      <!-- SIDEBAR (on the right)-->
+      <aside class="course-sidebar" aria-label="Course purchase options">
+        <h3><%= course.title %></h3>
+
+        <div class="course-icons" aria-label="Course summary">
+          <%- include('partials/level-icon', { level: course.level }) %>
+          <span><%= course.level %></span>
+          <img src="/images/course-details-images/Time.svg" alt="Time icon"> <%= course.duration %>
+          <img src="/images/course-details-images/Star.svg" alt="Star icon"> <%= course.rating %>
+          <img src="/images/course-details-images/learners.svg" alt="Learners icon"> <%= course.learners %>
+        </div>
+
+        <button aria-label="Start free trial for 7 days" data-i18n="startFreeTrial">Start 7-day free trial</button>
+        <button aria-label="Subscribe to Pro plan (15 dollars for a month)" data-i18n="subscribePro">Subscribe to Pro ($15/month)</button>
+        <p data-i18n="proBenefits">Get course + certificate with Pro subscription</p>
+      </aside>
+
+      <!-- What you'll learn -->
+      <section class="what-youll-learn" aria-label="Learning outcomes">
+        <h2 data-i18n="whatYoullLearn">What you'll learn</h2>
+        <ul>
+          <% course.learn.forEach(l => { %>
+            <li><%= l %></li>
+          <% }) %>
+        </ul>
+      </section>
+
+      <!-- Who is this course for -->
+      <section class="who-is-this-course-for" aria-label="Target audience">
+        <h2 data-i18n="whoIsThisFor">Who is this course for?</h2>
+        <ul>
+          <% course.for.forEach(f => { %>
+            <li><%= f %></li>
+          <% }) %>
+        </ul>
+      </section>
+
+      <!-- Curriculum -->
+      <section class="curriculum" aria-label="Course curriculum">
+        <h2 data-i18n="curriculum">Curriculum</h2>
+        <ul>
+          <% course.modules.forEach(m => { %>
+            <li><%= m.name %> – <%= m.hours %> hours</li>
+          <% }) %>
+        </ul>
+      </section>
+
+      <!-- CTA -->
+      <section class="cta">
+        <p data-i18n="ctaText">Get access to the complete curriculum with your free trial</p>
+        <button class="button-cta" aria-label="Start trial" data-i18n="startTrialBtn">Start 7-day free trial</button>
+      </section>
+
+      <!-- Author -->
+      <section class="author-of-course" aria-label="Course author section">
+        <h2 data-i18n="courseAuthor">Author of course</h2>
+        <figure>
+          <picture>
+            <source media="(max-width: 768px)"
+                    srcset="/images/mobile-images/author-mobile.png" width="95" height="100">
+            <img src="/images/course-details-images/author.png" 
+                alt="Author: Anna Richardson" 
+                height="171" 
+                width="152">
+          </picture>
+          <figcaption>
+            <p ><strong>Anna Richardson</strong></p>
+            <p data-i18n="authorSubtitle">Data Scientist & Lead Instructor with 8+ Years of Experience</p>
+          </figcaption>
+        </figure>
+        <p data-i18n="authorBio">Dr. Anna Kovalenko is a passionate data scientist and educator with over eight years of experience transforming complex data into actionable insights...</p>
+        <button class="read-more-btn" aria-label="Read more about the author" data-i18n="readMore">
+          Read more 
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M4 6L8 10L12 6" stroke="#5C50E1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </section>
+
+      <!-- Certificate -->
+      <section class="course-certificate" aria-label="Course certificate information">
+        <h2 data-i18n="certificateTitle">Earn a certificate with an Academy Pro subscription</h2>
+        <picture>
+          <source media="(max-width: 768px)" 
+                  srcset="/images/mobile-images/certificate-mobile.png" width="345" height="267">
+          <img src="/images/course-details-images/certificate.png" 
+              alt="Course Completion Certificate" width="711" height="550">
+        </picture>
+
+        <button class="button-cta" aria-label="Subscribe for certificate" data-i18n="subscribeBtn">
+          Subscribe to Pro ($15/month)
+        </button>
+        <div class="benefits" aria-label="Certificate benefits list">
+          <p data-i18n="benefitRecruiter">✓ Get recruiter attention</p>
+          <p data-i18n="benefitGlobal">✓ Global certification</p>
+          <p data-i18n="benefitLinkedin">✓ Share on LinkedIn</p>
+          <p data-i18n="benefitJob">✓ Land a tech job</p>
+        </div>
+      </section>
+
+      <!-- You might also like -->
+      <section class="you-might-also-like" aria-label="Suggested courses">
+        <h2 data-i18n="youMightAlsoLike">You might also like</h2>
+        <nav>
+          <button class="nav-button" aria-label="Previous courses">
+            <img src="/images/course-details-images/button-back.svg" alt="Previous courses">
+          </button>
+
+          <% courses.slice(0, 3).forEach(c => { %>
+            <article>
+              <h3><%= c.title %></h3>
+              <div class="course-icons" aria-label="Course information">
+                <%- include('partials/level-icon', { level: c.level }) %>
+                <span><%= c.level %></span>
+                <img src="/images/course-details-images/Time.svg" alt="time-icon"> <%= c.duration %>
+              </div>
+              <p><%= c.description %></p>
+              <a href="/course/<%= c.id %>" data-i18n="seeDetails">See Details →</a>
+            </article>
+          <% }) %>
+
+          <button class="nav-button" aria-label="Next courses">
+            <img src="/images/course-details-images/button next.svg" alt="Next courses">
+          </button>
+        </nav>
+      </section>
+
+    </article>
+  </main>
+
+  <%- include('partials/footer') %>
+</body>
+</html>

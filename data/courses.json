@@ -1,0 +1,353 @@
+[
+  {
+    "id": "python",
+    "title": "Python for Data Analysis: Zero to Pandas in 40 Hours",
+    "tags": ["python", "backend", "data-science"],
+    "level": "basic",
+    "duration": "40 hours",
+    "rating": "4.8",
+    "learners": "10K+",
+    "type": "Pro",
+    "description": "Master the essential tools of Python for data analysis. In this 40-hour hands-on course, you'll go from absolute beginner to confidently using Python, NumPy, Pandas, and Matplotlib to analyze and visualize real-world datasets.",
+    "career": "Upon completion, you'll be prepared for roles such as Junior Data Analyst, Business Intelligence Analyst, Marketing Analyst, or Research Assistant, and you'll have a solid foundation for further study in Data Science.",
+    "learn": [
+      "Write fundamental Python code with confidence.",
+      "Set up a professional data analysis environment (Jupyter Notebooks).",
+      "Efficiently manipulate and analyze data using Pandas DataFrames.",
+      "Clean and prepare messy real-world datasets for analysis.",
+      "Perform grouping, aggregation, and summary statistics.",
+      "Create informative and professional data visualizations.",
+      "Complete a full data analysis project to add to your portfolio."
+    ],
+    "for": [
+      "Absolute beginners to programming.",
+      "Analysts, marketers, or students who want to add data analysis skills to their toolkit.",
+      "Anyone curious about data science and looking for a structured, beginner-friendly introduction."
+    ],
+    "modules": [
+      { "name": "Module 1: Python Fundamentals – Your First Steps", "hours": "8" },
+      { "name": "Module 2: Introduction to Data Analysis with NumPy ", "hours": "6" },
+      { "name": "Module 3: Data Wrangling with Pandas – The Core of the Course", "hours": "14" },
+      { "name": "Module 4: Data Visualization with Matplotlib & Seaborn ", "hours": "8" },
+      { "name": "Module 5: Capstone Project – Putting It All Together ", "hours": "4" }
+    ]
+  },
+  {
+    "id": "ai",
+    "title": "Understanding Artificial Intelligence",
+    "tags": ["ai", "machine-learning"],
+    "level": "intermediate",
+    "duration": "3 hours",
+    "rating": "4.7",
+    "learners": "8K+",
+    "type": "Free",
+    "description": "Learn the basic concepts of Artificial Intelligence, such as machine learning, deep learning, NLP, and generative AI.",
+    "career": "Entry-level AI Research Assistant, or Data Entry Specialist familiar with AI tools.",
+    "learn": [
+      "Understand key AI terms and applications.",
+      "Differentiate between AI, machine learning, and deep learning.",
+      "Explore real-world AI tools and case studies."
+    ],
+    "for": [
+      "Beginners curious about AI.",
+      "Students and professionals exploring technology trends."
+    ],
+    "modules": [
+      { "name": "What is AI?", "hours": "1" },
+      { "name": "Machine Learning Basics", "hours": "1" },
+      { "name": "AI in the Real World", "hours": "1" }
+    ]
+  },
+  {
+    "id": "js",
+    "title": "Introduction to JavaScript",
+    "tags": ["js", "frontend", "web-development"],
+    "level": "basic",
+    "duration": "5 hours",
+    "rating": "4.6",
+    "learners": "7K+",
+    "type": "Free",
+    "description": "Learn how to control the flow of a program and use JavaScript to power dynamic behaviors on websites.",
+    "career": "Junior Front-End Developer.",
+    "learn": [
+      "Understand the basics of JavaScript syntax.",
+      "Work with variables, loops, and conditionals.",
+      "Manipulate the DOM to create interactive web pages."
+    ],
+    "for": [
+      "Beginners learning front-end development.",
+      "Students transitioning from HTML/CSS to programming."
+    ],
+    "modules": [
+      { "name": "JS Basics", "hours": "1" },
+      { "name": "Working with Functions", "hours": "2" },
+      { "name": "DOM Manipulation", "hours": "2" }
+    ]
+  },
+  {
+    "id": "java",
+    "title": "Java Programming Fundamentals",
+    "tags": ["java", "backend"],
+    "level": "intermediate",
+    "duration": "25 hours",
+    "rating": "4.5",
+    "learners": "12K+",
+    "type": "Pro",
+    "description": "Build robust applications with Java. Learn object-oriented programming, data structures, and algorithms.",
+    "career": "Java Developer, Backend Engineer, Android Developer.",
+    "learn": [
+      "Master object-oriented programming concepts",
+      "Work with Java collections framework",
+      "Understand exception handling and multithreading",
+      "Build console applications from scratch"
+    ],
+    "for": [
+      "Beginners with basic programming knowledge",
+      "Developers switching to Java from other languages",
+      "Computer science students"
+    ],
+    "modules": [
+      { "name": "Java Basics and OOP", "hours": "8" },
+      { "name": "Data Structures and Collections", "hours": "7" },
+      { "name": "Advanced Java Concepts", "hours": "6" },
+      { "name": "Final Project", "hours": "4" }
+    ]
+  },
+  {
+    "id": "html-css",
+    "title": "HTML & CSS for Beginners",
+    "tags": ["html-css", "frontend", "web-development"],
+    "level": "basic",
+    "duration": "8 hours",
+    "rating": "4.9",
+    "learners": "15K+",
+    "type": "Free",
+    "description": "Learn to build beautiful, responsive websites with HTML5 and CSS3. No prior experience required.",
+    "career": "Front-End Developer, Web Designer, UI/UX Designer.",
+    "learn": [
+      "Create semantic HTML structure",
+      "Style websites with modern CSS",
+      "Build responsive layouts with Flexbox and Grid",
+      "Add animations and transitions"
+    ],
+    "for": [
+      "Complete beginners to web development",
+      "Designers learning to code",
+      "Anyone wanting to build their first website"
+    ],
+    "modules": [
+      { "name": "HTML Fundamentals", "hours": "3" },
+      { "name": "CSS Styling", "hours": "3" },
+      { "name": "Responsive Design", "hours": "2" }
+    ]
+  },
+  {
+    "id": "react",
+    "title": "React.js - The Complete Guide",
+    "tags": ["react", "fullstack", "js"],
+    "level": "intermediate",
+    "duration": "30 hours",
+    "rating": "4.8",
+    "learners": "9K+",
+    "type": "Pro",
+    "description": "Master React.js with Hooks, Context API, Redux, and build real-world projects.",
+    "career": "React Developer, Frontend Engineer, Full-Stack Developer.",
+    "learn": [
+      "Build reusable React components",
+      "Manage state with Hooks and Context",
+      "Work with APIs and external data",
+      "Deploy React applications"
+    ],
+    "for": [
+      "JavaScript developers learning React",
+      "Frontend developers upgrading skills",
+      "Full-stack developers expanding their toolkit"
+    ],
+    "modules": [
+      { "name": "React Basics and JSX", "hours": "6" },
+      { "name": "State Management", "hours": "8" },
+      { "name": "Advanced React Patterns", "hours": "10" },
+      { "name": "Real Project Development", "hours": "6" }
+    ]
+  },
+  {
+    "id": "sql",
+    "title": "SQL for Data Analysis",
+    "tags": ["sql", "backend", "data-science"],
+    "level": "basic",
+    "duration": "12 hours",
+    "rating": "4.7",
+    "learners": "11K+",
+    "type": "Free",
+    "description": "Learn to extract, transform, and analyze data using SQL queries. Essential for any data-related role.",
+    "career": "Data Analyst, Business Analyst, Database Administrator.",
+    "learn": [
+      "Write complex SQL queries",
+      "Filter, sort, and aggregate data",
+      "Work with multiple tables using JOINs",
+      "Solve real business problems with SQL"
+    ],
+    "for": [
+      "Aspiring data analysts",
+      "Business professionals working with data",
+      "Developers needing database skills"
+    ],
+    "modules": [
+      { "name": "SQL Basics", "hours": "4" },
+      { "name": "Advanced Queries", "hours": "5" },
+      { "name": "Real-world Analysis", "hours": "3" }
+    ]
+  },
+  {
+    "id": "nodejs",
+    "title": "Node.js Backend Development",
+    "tags": ["nodejs", "backend", "fullstack"],
+    "level": "advanced",
+    "duration": "35 hours",
+    "rating": "4.6",
+    "learners": "6K+",
+    "type": "Pro",
+    "description": "Build scalable backend applications with Node.js, Express, and MongoDB. Learn authentication, APIs, and deployment.",
+    "career": "Backend Developer, Full-Stack Developer, DevOps Engineer.",
+    "learn": [
+      "Create RESTful APIs with Express",
+      "Implement authentication and authorization",
+      "Work with databases (MongoDB)",
+      "Deploy Node.js applications"
+    ],
+    "for": [
+      "JavaScript developers moving to backend",
+      "Full-stack developers",
+      "Experienced programmers learning Node.js"
+    ],
+    "modules": [
+      { "name": "Node.js Fundamentals", "hours": "8" },
+      { "name": "Building REST APIs", "hours": "10" },
+      { "name": "Database Integration", "hours": "9" },
+      { "name": "Deployment and Security", "hours": "8" }
+    ]
+  },
+
+  {
+  "id": "ui-ux",
+  "title": "UI/UX Design Fundamentals",
+  "tags": ["ui-ux-design", "design"],
+  "level": "basic",
+  "duration": "15 hours",
+  "rating": "4.7",
+  "learners": "8K+",
+  "type": "Pro",
+  "description": "Learn the principles of user interface and user experience design. Create intuitive and beautiful digital products.",
+  "career": "UI/UX Designer, Product Designer, Web Designer.",
+  "learn": [
+    "Understand user-centered design principles",
+    "Create wireframes and prototypes",
+    "Conduct user research and testing",
+    "Design responsive interfaces"
+  ],
+  "for": [
+    "Aspiring designers",
+    "Developers wanting to learn design",
+    "Product managers"
+  ],
+  "modules": [
+    { "name": "Design Principles", "hours": "4" },
+    { "name": "Wireframing & Prototyping", "hours": "5" },
+    { "name": "User Research", "hours": "3" },
+    { "name": "Portfolio Project", "hours": "3" }
+  ]
+},
+{
+  "id": "figma",
+  "title": "Figma for Beginners",
+  "tags": ["ui-ux-design", "design"],
+  "level": "basic", 
+  "duration": "6 hours",
+  "rating": "4.8",
+  "learners": "12K+",
+  "type": "Free",
+  "description": "Master Figma from scratch. Learn to design interfaces, create prototypes, and collaborate with teams.",
+  "career": "UI Designer, UX Designer, Graphic Designer.",
+  "learn": [
+    "Navigate Figma interface confidently",
+    "Create design systems and components",
+    "Build interactive prototypes",
+    "Collaborate with developers"
+  ],
+  "for": [
+    "Complete beginners to design tools",
+    "Design students",
+    "Developers learning design collaboration"
+  ],
+  "modules": [
+    { "name": "Figma Basics", "hours": "2" },
+    { "name": "Design Tools", "hours": "2" },
+    { "name": "Prototyping", "hours": "2" }
+  ]
+},
+{
+  "id": "cpp",
+  "title": "C++ Programming for Beginners",
+  "tags": ["c++", "cpp", "programming", "game-development"],
+  "level": "intermediate",
+  "duration": "20 hours",
+  "rating": "4.6",
+  "learners": "5K+",
+  "type": "Pro",
+  "description": "Learn C++ from scratch. Master object-oriented programming, memory management, and build your first applications in one of the most powerful programming languages.",
+  "career": "C++ Developer, Game Developer, Embedded Systems Engineer, Software Engineer.",
+  "learn": [
+    "Understand C++ syntax and fundamentals",
+    "Master object-oriented programming in C++",
+    "Work with pointers and memory management",
+    "Build console applications and games",
+    "Understand STL and standard libraries"
+  ],
+  "for": [
+    "Beginners wanting to learn C++",
+    "Programmers switching to C++ from other languages",
+    "Game development enthusiasts",
+    "Computer science students"
+  ],
+  "modules": [
+    { "name": "C++ Basics and Syntax", "hours": "5" },
+    { "name": "Object-Oriented Programming", "hours": "6" },
+    { "name": "Memory Management and Pointers", "hours": "4" },
+    { "name": "STL and Advanced Features", "hours": "3" },
+    { "name": "Final Project - Console Game", "hours": "2" }
+  ]
+},
+{
+  "id": "unity-game-dev",
+  "title": "Unity Game Development Fundamentals",
+  "tags": ["game-development", "unity", "c#", "gaming"],
+  "level": "basic",
+  "duration": "18 hours",
+  "rating": "4.7",
+  "learners": "7K+",
+  "type": "Pro",
+  "description": "Create your first 2D and 3D games with Unity. Learn C# scripting, game physics, animation, and publish your own game.",
+  "career": "Game Developer, Unity Developer, Game Designer, VR/AR Developer.",
+  "learn": [
+    "Navigate Unity interface and workflow",
+    "Write C# scripts for game mechanics",
+    "Create 2D and 3D game environments",
+    "Implement game physics and collisions",
+    "Add animations and sound effects",
+    "Publish your game to platforms"
+  ],
+  "for": [
+    "Aspiring game developers",
+    "Programmers interested in game development",
+    "Designers wanting to learn Unity",
+    "Anyone curious about game creation"
+  ],
+  "modules": [
+    { "name": "Unity Basics and Interface", "hours": "3" },
+    { "name": "C# Scripting for Games", "hours": "5" },
+    { "name": "2D Game Development", "hours": "4" },
+    { "name": "3D Game Development", "hours": "4" },
+    { "name": "Publishing Your Game", "hours": "2" }
+  ]
+}
+]

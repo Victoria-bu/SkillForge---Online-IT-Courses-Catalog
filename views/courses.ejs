@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Courses - SkillForge</title>
+</head>
+ 
+<body>
+  <%- include('partials/header') %>
+  <% 
+  let filteredCourses = courses;
+  const currentTopic = typeof topic !== 'undefined' ? topic : null;
+
+  if (currentTopic) {
+    filteredCourses = courses.filter(course => {
+      return course.tags.some(tag => 
+        tag.toLowerCase().includes(currentTopic.toLowerCase())
+      );
+    });
+  }
+  %>
+
+  <main>
+    <!-- POPULAR LANGUAGES -->
+    <section id="popular-languages">
+      <picture>
+        <source media="(max-width: 768px)" srcset="/images/mobile-images/trand-icon-mobile.svg">
+        <img src="/images/mobile-images/trand-icon.svg" alt="trend icon">
+      </picture>
+
+      <h2 data-i18n="popularLanguagesTitle">Popular Languages</h2>
+      <div class="language-buttons" role="group" aria-label="Programming languages">
+        <a href="/courses?topic=python">
+          <button  aria-label="Show Python courses"><img src="/images/logos career/python.svg" alt="Python icon">Python</button>
+        </a>
+        <a href="/courses?topic=js">
+          <button aria-label="Show JavaScript courses"><img src="/images/logos career/javascript.svg" alt="JavaScript icon">JavaScript</button>
+        </a>
+        <a href="/courses?topic=cpp">
+          <button aria-label="Show C plus plus courses"><img src="/images/logos career/c-plus-plus.svg" alt="C++ icon">C++</button>
+        </a>
+        <a href="/courses?topic=java">
+          <button aria-label="Show Java courses"><img src="/images/logos career/java.svg" alt="Java icon">Java</button>
+        </a>
+        <a href="/courses?topic=html-css">
+          <button aria-label="Show HTML and CSS courses"><img src="/images/logos career/css.svg" alt="HTML and CSS icon">HTML & CSS</button>
+        </a>
+      </div>
+    </section>
+    
+
+    <% if (currentTopic) { %>
+      <div class="filter-bar">
+        <img src="/images/filter.svg" alt="filter icon">
+        <p data-i18n="Filters">Filters</p>
+        <a href="/courses" data-i18n="clearFilter">Clear filters</a>
+      </div>
+    <% } %>
+
+    <!-- FILTERS + COURSES WRAPPER -->
+    <section class="courses-wrapper">
+      <aside class="filters" aria-label="Course filters">
+        <details open>
+          <summary data-i18n="skillLevel">Skill level</summary>
+          <label><input type="checkbox" name="level" value="all" checked> All</label>
+          <label><input type="checkbox" name="level" value="basic"> Basic</label>
+          <label><input type="checkbox" name="level" value="intermediate"> Intermediate</label>
+          <label><input type="checkbox" name="level" value="advanced"> Advanced</label>
+        </details>
+
+        <details>
+          <summary data-i18n="topic">Topic</summary>
+          <label><input type="checkbox" name="topic" value="frontend"> Front-End</label>
+          <label><input type="checkbox" name="topic" value="backend"> Back-End</label>
+          <label><input type="checkbox" name="topic" value="data"> Data Science</label>
+          <label><input type="checkbox" name="topic" value="ai"> AI & ML</label>
+          <label><input type="checkbox" name="topic" value="design"> Design</label>
+        </details>
+
+        <details open>
+          <summary data-i18n="subscription">Subscription</summary>
+          <label><input type="checkbox" name="sub" value="free"> Free</label>
+          <label><input type="checkbox" name="sub" value="pro"> Pro</label>
+        </details>
+
+        <details>
+          <summary data-i18n="time-to-complete">Average time to complete</summary>
+          <label><input type="checkbox" name="time" value="short"> &lt; 3 hours</label>
+          <label><input type="checkbox" name="time" value="medium"> 3–10 hours</label>
+          <label><input type="checkbox" name="time" value="medium"> 10–20 hours</label>
+          <label><input type="checkbox" name="time" value="long"> &gt; 20 hours</label>
+        </details>
+      </aside>
+
+      <section class="course-list">
+
+        <div class="sorting">
+          <label for="sort" data-i18n="sortBy">Sort by:</label>
+          <select id="sort" name="sort">
+            <option value="popular" data-i18n="mostPopular">Most Popular</option>
+            <option value="newest" data-i18n="newest">Newest</option>
+          </select>
+        </div>
+
+
+        <div class="course-grid">
+          <% filteredCourses.forEach(course => { %>
+            <article itemscope itemtype="https://schema.org/Course">
+              <div class="course-title">
+                <h2 itemprop="name">
+                  <a href="/course/<%= course.id %>"><%= course.title %></a>
+                </h2>
+                <% if(course.type === 'Pro'){ %>
+                  <img src="/images/Pro Icon.svg" alt="pro icon">
+                <% } else if(course.type === 'Free'){ %>
+                  <span class="tag free" aria-label="Free course">FREE</span>
+                <% } %>
+                </div>
+
+              <p itemprop="description"><%= course.description %></p>
+
+              <div class="course-meta">
+                <span class="level-indicator" aria-label="Skill level: <%= course.level %>">
+                  <%- include('partials/level-icon', { level: course.level }) %>
+                  <%= course.level %>
+                </span>
+                <span aria-label="Duration">
+                  <img src="/images/course-details-images/Time.svg" alt="time icon">
+                  <%= course.duration %>
+                </span>
+              </div>
+            </article>
+          <% }) %>
+        </div>
+    </section>
+
+  </main>
+  <%- include('partials/footer') %>
+
+</body>
+</html>

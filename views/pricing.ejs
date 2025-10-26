@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="pricing.title">Pricing</title>
+</head>
+<body>
+    <%- include('partials/header') %>
+  <main>
+    <!-- Hero section -->
+    <section class="pricing-hero">
+      <div class="container pricing-hero_container">
+        <h3 id="pricing-heading" data-i18n="pricing.heading">Our Pricing</h3>
+        <img src="/images/pricing page/doodle.svg" alt="doodle">
+        <p data-i18n="pricing.intro">Welcome to SkillForge's Pricing page, where we offer two comprehensive plans to fit your learning journey: Free and Pro. We are committed to providing flexible and affordable access to high-quality IT education.
+           Whether you're just starting to explore tech or are a seasoned professional upgrading your skills, we have a plan designed for you. Explore your options below and choose the one that best aligns with your goals.</p>
+      </div>
+    </section>
+
+    <!-- Pricing plans -->
+    <section class="pricing-plans">
+      <div class="container pricing-plans_container">
+        <!-- Switcher -->
+        <div class="pricing-switcher" aria-label="Billing options">
+          <label>
+            <input type="radio" name="billing" value="monthly" checked aria-label="Monthly billing"> 
+            <span data-i18n="pricing.monthly">Monthly</span>
+          </label>
+          <label>
+            <input type="radio" name="billing" value="yearly" aria-label="Yearly billing">
+            <span data-i18n="pricing.yearly">Yearly</span>
+          </label>
+        </div>
+
+        <!-- Free plan -->
+        <article class="pricing-plan" itemscope itemtype="https://schema.org/Offer" aria-labelledby="free-plan-heading">
+          <h2 id="free-plan-heading" data-i18n="pricing.freePlanTitle" itemprop="name">Free Plan</h2>
+          <p class="price" data-i18n="pricing.freePlanPrice" itemprop="price">$0 <span>/ month</span></p>
+          <ul>
+            <li>
+              <img src="/images/pricing page/Approved.svg" alt="no" aria-hidden="true">
+              <span data-i18n="pricing.free.features1">Access to selected free courses</span>
+            </li>
+            <li>
+              <img src="/images/pricing page/Approved.svg" alt="no" aria-hidden="true">
+              <span data-i18n="pricing.free.features2">All course materials and resources</span>
+            </li>
+            <li>
+              <img src="/images/pricing page/NO.svg" alt="no" aria-hidden="true">
+              <span data-i18n="pricing.free.features3">Access to all Pro Plan courses</span>
+            </li>
+            <li>
+              <img src="/images/pricing page/NO.svg" alt="no" aria-hidden="true">
+              <span data-i18n="pricing.free.features4">Course completion certificates</span>
+            </li>
+            <li>
+              <img src="/images/pricing page/NO.svg" alt="no" aria-hidden="true">
+              <span data-i18n="pricing.free.features5">Priority support from our mentors</span>
+            </li>
+          </ul>
+          <button class="btn solid purple" aria-label="Get started with Free plan" data-i18n="pricing.free.button">
+            Get Started
+          </button>
+        </article>
+      
+        <!-- Pro plan -->
+        <article class="pricing-plan" itemscope itemtype="https://schema.org/Offer" aria-labelledby="pro-plan-heading">
+          <h2 id="pro-plan-heading" data-i18n="pricing.proPlanTitle" itemprop="name">Pro Plan</h2>
+          <span class="recommended-badge" aria-label="Recommended plan">
+            <img src="/images/pricing page/recommend icon.svg" alt="recommend-icon" aria-hidden="true">
+            <span data-i18n="pricing.pro.recommended">Recommended</span>
+          </span>
+          <p class="price" data-i18n="pricing.proPlanPrice" itemprop="price">$15 <span>/ month</span></p>
+          <ul>
+            <li>
+              <img src="/images/pricing page/Approved.svg" alt="yes" aria-hidden="true">
+              <span data-i18n="pricing.pro.features1">Access to selected free courses</span>
+            </li>
+            <li>
+              <img src="/images/pricing page/Approved.svg" alt="yes" aria-hidden="true">
+              <span data-i18n="pricing.pro.features2">All course materials and resources</span>
+            </li>
+            <li>
+              <img src="/images/pricing page/Approved.svg" alt="yes" aria-hidden="true">
+              <span data-i18n="pricing.pro.features3">Access to all Pro Plan courses</span>
+            </li>
+            <li>
+              <img src="/images/pricing page/Approved.svg" alt="yes" aria-hidden="true">
+              <span data-i18n="pricing.pro.features4">Course completion certificates</span>
+            </li>
+            <li>
+              <img src="/images/pricing page/Approved.svg" alt="yes" aria-hidden="true">
+              <span data-i18n="pricing.pro.features5">Priority support from our mentors</span>
+            </li>
+          </ul>
+          <button class="btn solid purple" aria-label="Get started with Pro plan" data-i18n="pricing.pro.button">
+            Get Started
+          </button>
+        </article>
+      </div>
+    </section>
+
+    <!-- FAQ section -->
+    <section class="faq">
+    <div class="container">
+      <h2>Frequently asked questions</h2>
+      
+      <details>
+        <summary data-i18n="pricing.faq.q1">What happens if I cancel my Pro subscription?
+          <img src="/images/pricing page/button closed.svg" alt="button closed">
+        </summary>
+        <p data-i18n="pricing.faq.a1">If you cancel, you will lose access to the Pro-only features (like advanced courses and projects) at the end of your billing cycle. However, you will revert to the Free plan and keep permanent access to the free introductory content.</p>
+      </details>
+
+      <details>
+        <summary data-i18n="pricing.faq.q2">Can I get a certificate with the Free plan?
+          <img src="/images/pricing page/button closed.svg" alt="button closed">
+        </summary>
+        <p data-i18n="pricing.faq.a2">No, course completion certificates are only available with the Pro plan to ensure the value and credibility of our certifications.</p>
+      </details>
+
+      <details>
+        <summary data-i18n="pricing.faq.q3">How does the monthly subscription work?
+          <img src="/images/pricing page/button closed.svg" alt="button closed">
+        </summary>
+        <p data-i18n="pricing.faq.a3">Our monthly subscription automatically renews each month. You can cancel anytime, and you'll maintain access until the end of your billing period.</p>
+      </details>
+
+      <details>
+        <summary data-i18n="pricing.faq.q4">How does the 7-day free trial work?
+          <img src="/images/pricing page/button closed.svg" alt="button closed">
+        </summary>
+        <p data-i18n="pricing.faq.a4">The 7-day free trial gives you full access to all Pro features. If you don't cancel before the trial ends, your subscription will automatically convert to a paid Pro plan.</p>
+      </details>
+
+      <details>
+        <summary data-i18n="pricing.faq.q5">Can I enroll in multiple courses at once?
+          <img src="/images/pricing page/button closed.svg" alt="button closed">
+        </summary>
+        <p data-i18n="pricing.faq.a5">Absolutely! You can enroll in multiple courses simultaneously and access them at your convenience.</p>
+      </details>
+    </div>
+   </section>
+  </main>
+
+     <!-- FOOTER -->
+    <%- include('partials/footer') %>
+</body>
+</html>
