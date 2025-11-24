@@ -1,0 +1,363 @@
+.header {
+  z-index: 1000;
+  backdrop-filter: blur(20px);
+  -webkit-backpack-filter: blur(90px);
+  background: #f1f1f180;
+  border-bottom: 1px solid #fff3;
+  width: 100%;
+  padding: 1rem 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  box-shadow: 0 4px 30px #0000001a;
+}
+
+.nav {
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  display: flex;
+}
+
+.nav__brand {
+  align-items: center;
+  display: flex;
+}
+
+.nav__logo {
+  align-items: center;
+  gap: .75rem;
+  text-decoration: none;
+  transition: transform .3s;
+  display: flex;
+}
+
+.nav__logo:hover {
+  transform: translateY(-1px);
+}
+
+.nav__logo-text {
+  color: #000;
+  font-family: Inter, sans-serif;
+  font-size: 1.5625rem;
+  font-weight: 700;
+}
+
+.nav__menu {
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+}
+
+@media (width <= 768px) {
+  .nav__menu {
+    display: none;
+  }
+}
+
+.nav__link {
+  color: #000;
+  border-radius: 8px;
+  padding: .5rem 1rem;
+  font-family: Manrope, sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all .3s;
+  position: relative;
+}
+
+.nav__link:hover, .nav__link--active {
+  color: #5c50e1;
+}
+
+.nav__actions {
+  align-items: center;
+  gap: .5rem;
+  display: flex;
+}
+
+@media (width <= 768px) {
+  .nav__actions {
+    display: none;
+  }
+}
+
+.nav__btn {
+  border-radius: 8px;
+  padding: .5rem;
+  font-family: Manrope, sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  transition: all .3s;
+}
+
+.nav__btn--login {
+  color: #000;
+}
+
+.nav__btn--login:hover {
+  color: #5c50e1;
+}
+
+.nav__btn--signup {
+  color: #fff;
+  background: #5c50e1;
+  border: 2px solid #5c50e1;
+  padding: 5px 12px;
+}
+
+.nav__btn--signup:hover {
+  background: #4a40b8;
+  border-color: #4a40b8;
+}
+
+.nav__toggle {
+  cursor: pointer;
+  background: none;
+  border: none;
+  flex-direction: column;
+  gap: 4px;
+  padding: .5rem;
+  display: none;
+}
+
+@media (width <= 768px) {
+  .nav__toggle {
+    display: flex;
+  }
+}
+
+.nav__toggle span {
+  transform-origin: center;
+  background: #000;
+  width: 24px;
+  height: 2px;
+  transition: all .3s;
+}
+
+.mobile-menu {
+  display: none;
+}
+
+@media (width <= 768px) {
+  .mobile-menu {
+    -webkit-backdrop-filter: blur(20px);
+    background: #fffffff2;
+    border-top: 1px solid #fff3;
+    width: 100%;
+    padding: 2rem;
+    display: block;
+    position: fixed;
+    top: 80px;
+    left: 0;
+  }
+}
+
+.mobile-menu__nav {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.mobile-menu__nav li {
+  margin-bottom: 1rem;
+}
+
+.mobile-menu__nav a {
+  color: #000;
+  border-radius: 8px;
+  padding: .75rem 1rem;
+  font-family: Manrope, sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all .3s;
+  display: block;
+}
+
+.mobile-menu__nav a:hover {
+  color: #5c50e1;
+  background: #5c50e11a;
+}
+
+.footer {
+  background: #eeedff;
+  padding: 4rem 0 0;
+  font-family: Manrope, sans-serif;
+}
+
+.footer .container.footer {
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 3rem;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto 3rem;
+  padding: 0 2rem;
+  display: grid;
+}
+
+@media (width <= 1024px) {
+  .footer .container.footer {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+}
+
+@media (width <= 768px) {
+  .footer .container.footer {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+.footer .footer_col:first-child .logo {
+  align-items: center;
+  gap: .75rem;
+  margin-bottom: 1.5rem;
+  display: flex;
+}
+
+.footer .footer_col:first-child .logo svg {
+  width: 40px;
+  height: 41.5px;
+}
+
+.footer .footer_col:first-child .logo h4 {
+  color: #000;
+  margin: 0;
+  font-family: Inter, sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.footer .footer_col:first-child .footer_text {
+  color: #000;
+  max-width: 350px;
+  margin-bottom: 1rem;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+.footer .footer_col:first-child .footer_socials {
+  gap: 1rem;
+  display: flex;
+}
+
+.footer .footer_col:first-child .footer_socials a {
+  transition: transform .3s;
+  display: block;
+}
+
+.footer .footer_col:first-child .footer_socials a:hover {
+  transform: translateY(-2px);
+}
+
+.footer .footer_col:first-child .footer_socials a img {
+  border-radius: 8px;
+  width: 40px;
+  height: 40px;
+}
+
+.footer .footer_col p {
+  color: #000;
+  margin-bottom: 1.5rem;
+  font-family: Manrope, sans-serif;
+  font-size: 1.125rem;
+  font-weight: 600;
+}
+
+.footer .footer_col ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.footer .footer_col ul li {
+  margin-bottom: .75rem;
+}
+
+.footer .footer_col ul li a {
+  color: #000;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: color .3s;
+}
+
+.footer .footer_col ul li a:hover {
+  color: #5c50e1;
+}
+
+.footer .footer_col .footer_contacts li {
+  color: #000;
+  align-items: center;
+  gap: .75rem;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  display: flex;
+}
+
+.footer .footer_col .footer_contacts li img {
+  flex-shrink: 0;
+}
+
+.footer .footer_bottom {
+  padding: .5rem 0;
+}
+
+.footer .footer_bottom hr {
+  opacity: .22;
+  border-top: 1px solid #878787;
+  margin: 0 0 .5rem;
+}
+
+.footer .footer_bottom p {
+  text-align: center;
+  color: #000;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  font-size: .875rem;
+}
+
+.btn {
+  text-align: center;
+  cursor: pointer;
+  border: none;
+  border-radius: 6px;
+  padding: 12px 24px;
+  font-family: inherit;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all .2s;
+  display: inline-block;
+}
+
+.btn.solid.purple {
+  color: #fff;
+  background: #5c50e1;
+}
+
+.btn.solid.purple:hover {
+  background: #4a40b8;
+  box-shadow: 0 8px 20px #5c50e14d;
+}
+
+.btn.clear-btn {
+  color: #5c50e1;
+  background: none;
+  border: 2px solid #5c50e1;
+}
+
+.btn.clear-btn:hover {
+  color: #fff;
+  background: #5c50e1;
+}
+/*# sourceMappingURL=common.css.map */

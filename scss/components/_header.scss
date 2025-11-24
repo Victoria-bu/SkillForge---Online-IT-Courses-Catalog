@@ -1,0 +1,192 @@
+// scss/components/_header.scss
+@use '../utils/variables' as *;
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  padding: 1rem 0;
+  
+  // Ефект скла (glass morphism)
+  background: rgba(241, 241, 241, 0.5);
+  backdrop-filter: blur(20px);
+  -webkit-backpack-filter: blur(90px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+.nav {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  
+  &__brand {
+    display: flex;
+    align-items: center;
+  }
+  
+  &__logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+    
+    &:hover {
+      transform: translateY(-1px);
+    }
+  }
+  
+  &__logo-text {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 1.5625rem; // 25px
+    color: #000000; 
+  }
+  
+  &__menu {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+    margin: 0;
+    padding: 0;
+    
+    @media (max-width: 768px) {
+      display: none;
+    }
+  }
+  
+  &__link {
+    font-family: 'Manrope', sans-serif; 
+    font-weight: 700; 
+    font-size: 1rem;
+    color: #000000; 
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    position: relative;
+    
+    &:hover {
+      color: #5C50E1;
+    }
+    
+    &--active {
+      color: #5C50E1;
+    }
+  }
+  
+  &__actions {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    
+    @media (max-width: 768px) {
+      display: none;
+    }
+  }
+  
+  // Стилі для кнопок в хедері
+  &__btn {
+    font-family: 'Manrope', sans-serif; 
+    font-weight: 700; // Bold
+    font-size: 1rem; 
+    padding: 0.5rem 0.5rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    
+    &--login {
+      color: #000000; 
+      &:hover {
+        color: #5C50E1;
+      }
+    }
+    
+    &--signup {
+      color: #ffffff; // Білий текст
+      background: #5C50E1; // Фіолетовий фон
+      border: 2px solid #5C50E1;
+      padding: 5px 12px; 
+      
+      &:hover {
+        background: #4a40b8;
+        border-color: #4a40b8;
+      }
+    }
+  }
+  
+  &__toggle {
+    display: none;
+    flex-direction: column;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    gap: 4px;
+    
+    @media (max-width: 768px) {
+      display: flex;
+    }
+    
+    span {
+      width: 24px;
+      height: 2px;
+      background: #000000;
+      transition: all 0.3s ease;
+      transform-origin: center;
+    }
+  }
+}
+
+// Mobile menu (поки без JS)
+.mobile-menu {
+  display: none;
+  
+  @media (max-width: 768px) {
+    display: block;
+    position: fixed;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 2rem;
+  }
+  
+  &__nav {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    
+    li {
+      margin-bottom: 1rem;
+    }
+    
+    a {
+      font-family: 'Manrope', sans-serif;
+      font-weight: 700; // Bold
+      font-size: 1rem; // 16px
+      color: #000000; 
+      text-decoration: none;
+      display: block;
+      padding: 0.75rem 1rem;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      
+      &:hover {
+        color: #5C50E1;
+        background: rgba(92, 80, 225, 0.1);
+      }
+    }
+  }
+}

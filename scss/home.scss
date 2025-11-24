@@ -1,0 +1,1298 @@
+// Utils
+@use 'utils/variables';
+@use 'utils/mixins';
+
+// Base
+@use 'base/reset';
+@use 'base/typography';
+
+
+
+// COLORS
+$primary-purple: #5d5dff;
+$hero-background: #EEEDFF;
+$text-color: #1a1a1a;
+$subtitle-color: #555;
+
+
+// HERO SECTION
+#hero-container {
+  display: grid;
+  grid-template-columns: 45% 55%;
+  align-items: center;
+  min-height: 100vh;
+  padding: 0;
+  background: #EEEDFF;
+  margin-top: 0;
+  position: relative;
+  width: 100%;
+
+
+  // LEFT SIDE - CONTENT
+  .hero-content {
+    padding-left: 140px;
+    margin-top: -9rem; 
+    position: relative;
+    z-index: 2;
+    
+    .title {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0;
+      font-size: 4.5rem;
+      font-weight: 700;
+      font-family: 'Inter', sans-serif;
+      line-height: 1;
+      color: $text-color;
+      margin-bottom: 3rem;
+      white-space: nowrap; // Запобігає переносу слів
+      margin-top: -4.5rem;
+
+      .title-line {
+        display: block;
+        line-height: 1;
+        
+        &:first-child {
+          // Перший рядок - з ракетою
+          padding-left: 125px; // Відступ для ракети
+          
+        }
+      }
+
+      .title-line-second {
+        // Другий рядок - починається під ракетою
+        padding-left: 32px;
+        
+        .accent-text {
+          color: $primary-purple;
+        }
+      }
+    }
+
+    .subtitle {
+      font-size: 1.4rem;
+      color: $text-color;
+      line-height: 1.5;
+      margin-bottom: 3rem;
+      max-width: 450px;
+      margin-left: 35px;
+    }
+
+    .btn-group {
+      display: flex;
+      gap: 1rem;
+      margin-left: 35px;
+
+      .btn {
+        padding: 14px 40px; 
+        border-radius: 8px;
+        font-size: 1.1rem;
+        font-weight: 600;
+        text-decoration: none;
+        transition: all 0.3s ease;
+
+        &.purple {
+          background: $primary-purple;
+          color: white;
+          border: none;
+
+          &:hover {
+            background: #4a4acc;
+            transform: translateY(-2px);
+          }
+        }
+
+        &.clear-btn {
+          background: transparent;
+          color: $primary-purple;
+          border: 1px solid $primary-purple;
+
+          &:hover {
+            background: rgba($primary-purple, 0.1);
+            transform: translateY(-2px);
+          }
+        }
+      }
+    }
+  }
+
+  // RIGHT SIDE - BIG IMAGE
+.hero-image {
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  position: relative;
+  
+  img {
+    width: auto; 
+    height: 100vh; // Висота на всю висоту екрану
+    min-height: 100vh;
+    object-fit: cover;
+    object-position: center bottom; // Вирівнюємо по низу
+    display: block;
+    position: absolute;
+    right: 0; // Вирівнюємо праворуч
+    bottom: 0; // Вирівнюємо по низу
+    max-width: none; // Прибираємо обмеження ширини
+  }
+}
+
+  @media (max-width: 1200px) {
+    .hero-content {
+      padding-left: 80px;
+      
+      .title {
+        font-size: 3.5rem;
+        
+        .title-line-second {
+          margin-left: 75px;
+        }
+      }
+      
+      .subtitle,
+      .btn-group {
+        margin-left: 75px;
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    min-height: auto;
+    
+    .hero-content {
+      padding: 3rem 2rem;
+      text-align: center;
+      
+      .title {
+        font-size: 2.5rem;
+        align-items: center;
+        
+        .title-line {
+          flex-direction: column;
+          gap: 0.5rem;
+        }
+        
+        .title-line-second {
+          margin-left: 0;
+        }
+      }
+      
+      .subtitle,
+      .btn-group {
+        margin-left: 0;
+      }
+      
+      .btn-group {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+    
+    .hero-image {
+      height: 100vh;
+      
+      img {
+        max-height: 100vh;
+      }
+    }
+  }
+}
+
+// CAREER PATHS SECTION
+#career-path {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 1rem;
+  min-height: 100vh;
+  width: 100%;
+  background: #ffffff;
+
+  // Фонові розмиті фігури
+  #background-shapes {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 1;
+
+    .shape {
+      position: absolute;
+      border-radius: 200%;
+      filter: blur(98px);
+      opacity: 0.5;
+    }
+
+    .shape-1 {
+      background: #5C50E1;
+      top: 5%;
+      left: 60%;
+      width: 800px;
+      height: 300px;
+      rotate : -45deg;
+    }
+
+    .shape-2 {
+      background: #C153E3;
+      bottom: 25%;
+      right: 70%;
+      width: 700px;
+      height: 200px;
+      rotate : 15deg;
+    }
+  }
+
+  // Glass container
+  .glass-container {
+    position: relative;
+    z-index: 20;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 20px;
+    padding: 3rem;
+    width: 100%;
+    max-width: 900px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  }
+
+  .section-title {
+    font-size: 36px;
+    font-weight: 500; 
+    color: #1a1a1a;
+    margin-bottom: 0.5rem;
+    font-family: 'Inter', sans-serif;
+    text-align: left; 
+    padding-left: 0;
+    letter-spacing: -5%;
+  }
+
+  .divider {
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, #5C50E1, #E2E2E2);
+    margin: 0.5rem 0 2.5rem 0;
+    border-radius: 2px;
+  }
+
+  // Контейнер для кнопок
+  .careers-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); // 2 стовпчики
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+      max-width: 345px;
+      margin: 0 auto 2rem;
+    }
+  }
+
+  // Стилі кнопок
+  .career-btn {
+    display: flex;
+    flex-direction: row; 
+    align-items: center;
+    justify-content: flex-start;
+    gap: 1rem;
+    padding: 1.5rem;
+    background-color: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: 600;
+    color: #1a1a1a;
+    text-align: left;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    font-family: 'Manrope', sans-serif;
+    font-size: 1rem;
+    text-decoration: none;
+    width: 345px; 
+    height: 70px;
+    min-height: 70px; 
+
+    &:hover {
+      background-color: rgba(255, 93, 255, 0.2);
+      
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(224, 92, 241, 0.4);
+      border-color: #C153E3;
+    }
+
+    svg {
+      width: 40px; 
+      height: 40px;
+      flex-shrink: 0; 
+    }
+  }
+
+  .career-footer {
+    text-align: center;
+    width: 100%;
+    
+    .career-question {
+      font-size: 1.125rem;
+      color: #1a1a1a;
+      margin-bottom: 0.5rem;
+      font-weight: 700;
+      font-family: 'Manrope', sans-serif;
+    }
+
+    .browse-all-courses {
+      font-size: 1.125rem;
+      font-weight: 700;
+      color: #5C50E1; 
+      text-decoration: none;
+      transition: color 0.2s;
+      font-family: 'Manrope', sans-serif;
+
+      &:hover {
+        color: #C153E3;
+      }
+    }
+  }
+
+  @media (max-width: 1024px) {
+    .careers-container {
+      grid-template-columns: 1fr;
+      justify-items: center;
+    }
+    
+    .career-btn {
+      width: 100%;
+      max-width: 345px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    padding: 2rem 1rem;
+    
+    .glass-container {
+      padding: 2rem 1.5rem;
+    }
+    
+    .section-title {
+      font-size: 28px;
+    }
+    
+    #background-shapes .shape-1,
+    #background-shapes .shape-2 {
+      width: 200px;
+      height: 200px;
+      filter: blur(60px);
+    }
+    
+    .career-btn {
+      width: 100%;
+      height: 60px;
+      min-height: 60px;
+      padding: 1rem;
+      
+      svg {
+        width: 30px;
+        height: 30px;
+      }
+    }
+  }
+}
+
+
+
+// COMPANIES SECTION
+#Companies {
+  position: relative;
+  padding: 4rem 0;
+  min-height: 50vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .col {
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 20px;
+    margin-bottom: 1rem;
+
+    @media (max-width: 768px) {
+      padding: 0 2rem;
+    }
+  }
+
+  .section-title {
+    font-size: 36px;
+    font-weight: 500;
+    color: #1a1a1a;
+    margin-bottom: 1.5rem;
+    font-family: 'Inter', sans-serif;
+    text-align: left;
+    letter-spacing: -5%;
+    line-height: 1.2;
+    span {
+    color: #C153E3;
+  }
+  }
+
+  p {
+    font-size: 16px;
+    color: #1a1a1a;
+    line-height: 1.7;
+    letter-spacing: 3%;
+    font-family: 'Manrope', sans-serif;
+    text-align: left;
+    max-width: 650px;
+    margin: 0;
+  }
+
+  .companies-logos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 3rem;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+
+    svg {
+      transition: filter 0.3s ease;
+      
+      &:nth-child(1) {
+        width: 170px;
+        margin-top: -5px;
+      }
+ 
+      &[width="150"] {
+        width: 120px;
+        height: auto;
+      }
+      
+      &[width="60"] {
+        width: 80px;
+        height: auto;
+        margin-top: -10px; // Піднімаємо менші логотипи
+      }
+      
+      &:nth-child(3),
+      &:nth-child(6) { // Apple
+        width: 60px;
+        margin-top: -5px;
+      }
+      
+      // Google
+      &:nth-child(7) {
+        width: 130px;
+      }
+      
+      // Microsoft
+      &:last-child {
+        width: 140px;
+      }
+
+      &:hover {
+        filter: grayscale(0%) brightness(1);
+      }
+    }
+  }
+
+  @media (max-width: 1024px) {
+    .col {
+      padding: 0 80px;
+    }
+    
+    .companies-logos {
+      gap: 2rem;
+      
+      svg {
+        &[width="150"] {
+          width: 100px;
+        }
+        
+        &[width="60"] {
+          width: 70px;
+        }
+        
+        &:nth-child(3),
+        &:nth-child(6) {
+          width: 80px;
+        }
+        
+        &:nth-child(7) {
+          width: 110px;
+        }
+        
+        &:last-child {
+          width: 120px;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    padding: 3rem 0;
+    
+    .col {
+      padding: 0 2rem;
+      margin-bottom: 2rem;
+    }
+    
+    .section-title {
+      font-size: 28px;
+    }
+    
+    p {
+      font-size: 1rem;
+    }
+    
+    .companies-logos {
+      gap: 1.5rem;
+      
+      svg {
+        &[width="150"] {
+          width: 80px;
+        }
+        
+        &[width="60"] {
+          width: 60px;
+          margin-top: -5px;
+        }
+        
+        &:nth-child(3),
+        &:nth-child(6) {
+          width: 70px;
+        }
+        
+        &:nth-child(7) {
+          width: 90px;
+        }
+        
+        &:last-child {
+          width: 100px;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 480px) {
+    .companies-logos {
+      gap: 1rem;
+      
+      svg {
+        &[width="150"] {
+          width: 70px;
+        }
+        
+        &[width="60"] {
+          width: 50px;
+        }
+        
+        &:nth-child(3),
+        &:nth-child(6) {
+          width: 60px;
+        }
+        
+        &:nth-child(7) {
+          width: 80px;
+        }
+        
+        &:last-child {
+          width: 90px;
+        }
+      }
+    }
+  }
+}
+
+
+// POPULAR COURSES SECTION
+#popular-courses {
+  position: relative;
+  padding: 4rem 0;
+  min-height: 479px;
+  width: 100%;
+  background: #EEEDFF;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  // Контейнер для заголовка та кнопки
+  .courses-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 2rem;
+    margin-bottom: 3rem;
+
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .section-title {
+      font-size: 36px;
+      font-weight: 500;
+      color: #1a1a1a;
+      font-family: 'Inter', sans-serif;
+      text-align: left;
+      letter-spacing: -4%;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem; 
+    }
+
+    .header-arrow {
+      margin-left: 0.5rem;
+      transform: translateY(3px);
+    }
+
+    .catalog-link {
+      font-size: 16px;
+      font-weight: 500;
+      color: #1a1a1a;
+      text-decoration: none;
+      font-family: 'Manrope', sans-serif;
+      transition: all 0.3s ease; 
+      
+      &:hover {
+        color: #5C50E1;
+        transform: translateY(-1px);
+      }
+    }
+  }
+  // Контейнер для карток
+  .courses-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 2rem;
+
+    @media (max-width: 1024px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+  }
+
+  // Стилі карток курсів
+  .course-card {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    width: 370px; 
+    height: 290px; 
+    display: flex;
+    flex-direction: column;
+    
+    &:hover {
+      box-shadow: 0 12px 40px rgba(92, 80, 225, 0.15);
+      border: 2px solid #5C50E1;
+    }
+
+    .course-title {
+      font-size: 25px; 
+      font-weight: 500; 
+      color: #1a1a1a;
+      margin-bottom: 0.75rem;
+      font-family: 'Inter', sans-serif;
+      line-height: 1.23;
+      letter-spacing: -4%; 
+    }
+
+    .course-meta {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 0.75rem;
+      flex-wrap: wrap;
+
+      .level-badge {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        border-radius: 20px;
+        font-size: 12px; 
+        font-weight: 600; // Semi-bold
+        color: #666; 
+        font-family: 'Manrope', sans-serif;
+        letter-spacing: -4%; 
+      }
+
+      .duration {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 12px; 
+        font-weight: 600; 
+        color: #666; 
+        font-family: 'Manrope', sans-serif;
+        letter-spacing: -4%; 
+        
+        img {
+          width: 18px;
+          height: 18px;
+        }
+      }
+    }
+
+    .course-description {
+       font-size: 16px;
+      font-weight: 400;
+      color: #1a1a1a;
+      line-height: 1.4;
+      margin-bottom: auto; 
+      font-family: 'Manrope', sans-serif;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      flex-grow: 1;
+    }
+
+    .course-link {
+      font-size: 16px;
+      font-weight: 600; 
+      color: #1a1a1a; 
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: all 0.3s ease;
+      font-family: 'Manrope', sans-serif;
+      margin-top: auto; 
+      padding-top: 0.75rem; 
+      
+      &:hover {
+        color: #5C50E1;
+      }
+    }
+  }
+
+  @media (max-width: 1440px) {
+    max-width: 100%;
+    
+    .courses-container {
+      justify-items: center;
+    }
+    
+    .course-card {
+      width: 100%;
+      max-width: 365px;
+    }
+  }
+
+  @media (max-width: 1200px) {
+    .courses-container {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    padding: 3rem 0;
+    min-height: auto;
+    
+    .section-title {
+      font-size: 28px;
+    }
+    
+    .courses-header {
+      flex-direction: column;
+      gap: 0.5rem;
+      text-align: center;
+    }
+    
+    .courses-container {
+      grid-template-columns: 1fr;
+      padding: 0 1rem;
+      gap: 1.5rem;
+    }
+    
+    .course-card {
+      width: 100%;
+      max-width: 365px;
+      height: auto;
+      min-height: 285px;
+      padding: 1.5rem;
+      
+      .course-title {
+        font-size: 22px;
+      }
+    }
+  }
+
+  @media (max-width: 480px) {
+    padding: 2rem 0;
+    
+    .course-card {
+      padding: 1.25rem;
+      
+      .course-title {
+        font-size: 20px;
+      }
+      
+      .course-description {
+        font-size: 14px;
+      }
+    }
+  }
+}
+
+// TESTIMONIALS SECTION
+#testimonials {
+  position: relative;
+  padding: 6rem 0;
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+  overflow: hidden;
+
+  .container {
+    width: 100%;
+    max-width: 1400px;
+    padding: 0 2rem;
+    position: relative;
+    z-index: 2;
+  }
+
+  #background-shapes {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 1;
+
+    .shape {
+      position: absolute;
+      border-radius: 200%;
+      filter: blur(98px);
+      opacity: 0.5;
+    }
+
+    .shape-1 {
+      background: #5C50E1;
+      top: 10%;
+      left: 70%;
+      width: 600px;
+      height: 400px;
+      rotate: -45deg;
+    }
+
+    .shape-2 {
+      background: #C153E3;
+      bottom: 15%;
+      right: 75%;
+      width: 500px;
+      height: 300px;
+      rotate: 15deg;
+    }
+  }
+
+  .section-title {
+    font-size: 36px;
+    font-weight: 500;
+    color: #1a1a1a;
+    margin-bottom: 4rem;
+    font-family: 'Inter', sans-serif;
+    text-align: center;
+    letter-spacing: -5%;
+  }
+
+  .testimonials_grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    align-items: start;
+    max-width: 1200px;
+    margin: 0 auto;
+    
+    // Середній стовпчик опускаємо вниз
+    .testimonial-card:nth-child(2),
+    .testimonial-card:nth-child(5) {
+      margin-top: 3rem;
+    }
+    
+    .testimonial-card:nth-child(4) {
+      margin-top: -1.5rem;
+    }
+    
+    .testimonial-card:nth-child(6) {
+      margin-top: -1.5rem;
+    }
+
+    @media (max-width: 1200px) {
+      grid-template-columns: repeat(2, 1fr);
+      
+      .testimonial-card:nth-child(2),
+      .testimonial-card:nth-child(5),
+      .testimonial-card:nth-child(4),
+      .testimonial-card:nth-child(6) {
+        margin-top: 0;
+      }
+      
+      .testimonial-card:nth-child(even) {
+        margin-top: 2rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+      
+      .testimonial-card:nth-child(even) {
+        margin-top: 0;
+      }
+    }
+  }
+
+  .testimonial-card {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 20px;
+  
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    height: auto;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1.5rem; 
+    width: 100%; 
+    max-width: 400px; 
+    margin: 0 auto;
+  
+
+    &:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 40px rgba(92, 80, 225, 0.25);
+    }
+
+    p {
+      font-size: 16px;
+      margin-bottom: 1rem; 
+      line-height: 1.5; 
+      font-size: 16px; 
+      color: #1a1a1a;
+      margin-bottom: 1.5rem; 
+      font-family: 'Manrope', sans-serif;
+      font-weight: 600;
+      flex-grow: 1;
+    }
+
+    .testimonial-user {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+
+      img {
+        width: 70px;
+        height: 70px;
+        border-radius: 12px;
+        object-fit: cover;
+        border: 2px solid rgba(255, 255, 255, 0.3);
+      }
+
+      .testimonial-user-info {
+        h4 {
+          font-size: 16px;
+          font-weight: 600; 
+          color: #1a1a1a;
+          margin-bottom: 0.25rem;
+          font-family: 'Manrope', sans-serif;
+        }
+
+        p {
+          font-size: 16px;
+          color: #1a1a1a;
+          margin-bottom: 0;
+          font-family: 'Manrope', sans-serif;
+          font-weight: 300; // Light
+          line-height: 1.3;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 1024px) {
+    padding: 4rem 0;
+    
+    .testimonials_grid {
+      gap: 1.5rem;
+    }
+    
+    .testimonial-card {
+      padding: 1.5rem;
+      min-height: 230px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    padding: 3rem 0;
+    
+    .section-title {
+      font-size: 28px;
+      margin-bottom: 3rem;
+    }
+    
+    .testimonials_grid {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+    
+    .testimonial-card {
+      padding: 1.25rem;
+      min-height: auto;
+      
+      p {
+        font-size: 15px;
+        margin-bottom: 1.25rem;
+        line-height: 1.4;
+      }
+      
+      .testimonial-user {
+        img {
+          width: 60px;
+          height: 60px;
+          border-radius: 10px;
+        }
+        
+        .testimonial-user-info {
+          h4 {
+            font-size: 15px;
+          }
+          
+          p {
+            font-size: 15px;
+            line-height: 1.2;
+          }
+        }
+      }
+    }
+    
+    #background-shapes {
+      .shape-1,
+      .shape-2 {
+        width: 300px;
+        height: 200px;
+        filter: blur(60px);
+      }
+      
+      .shape-1 {
+        top: 5%;
+        left: 60%;
+      }
+      
+      .shape-2 {
+        bottom: 5%;
+        right: 60%;
+      }
+    }
+  }
+
+  @media (max-width: 480px) {
+    padding: 2rem 0;
+    
+    .container {
+      padding: 0 1rem;
+    }
+    
+    .section-title {
+      font-size: 24px;
+    }
+    
+    .testimonial-card {
+      padding: 1rem;
+      
+      p {
+        font-size: 14px;
+        line-height: 1.4;
+      }
+      
+      .testimonial-user {
+        img {
+          width: 50px;
+          height: 50px;
+          border-radius: 8px;
+        }
+        
+        .testimonial-user-info {
+          h4 {
+            font-size: 14px;
+          }
+          
+          p {
+            font-size: 14px;
+          }
+        }
+      }
+    }
+  }
+}
+
+// CTA SECTION
+#cta {
+  position: relative;
+  padding: 6rem 2rem;
+  min-height: 60vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+
+    svg {
+      width: 71px;
+      height: 84px;
+    }
+
+    h2 {
+      font-size: 50px;
+      font-weight: 700;
+      color: black;
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      letter-spacing: -1%;
+    }
+  }
+
+  .cta_text {
+    font-size: 25px;
+    font-weight: 600;
+    line-height: 1.5;
+    margin-bottom: 3rem;
+    max-width: 530px;
+    font-family: 'Manrope', sans-serif;
+    letter-spacing: 0;
+  }
+
+  .btn-to-courses {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 26px;
+    background: #5C50E1;
+    font-size: 18px;
+    font-weight: 700;
+    color: white;
+    letter-spacing: -1%;
+    border-radius: 17px;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    font-family: 'Manrope', sans-serif;
+    border: 2px solid transparent;
+
+    &:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    &:active {
+      transform: translateY(-1px);
+    }
+  }
+
+  @media (max-width: 1024px) {
+    padding: 5rem 2rem;
+    
+    .cta_text {
+      font-size: 2.25rem;
+      max-width: 700px;
+    }
+    
+    .logo h2 {
+      font-size: 2.25rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    padding: 4rem 1.5rem;
+    min-height: 50vh;
+    
+    .logo {
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+      
+      svg {
+        width: 50px;
+        height: 60px;
+      }
+      
+      h2 {
+        font-size: 1.5rem;
+      }
+    }
+    
+    .cta_text {
+      font-size: 1.5rem;
+      margin-bottom: 2.5rem;
+      line-height: 1.3;
+    }
+    
+    .btn-to-courses {
+      padding: 1rem 2.5rem;
+      font-size: 1rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    padding: 3rem 1rem;
+    
+    .logo {
+      h2 {
+        font-size: 1.4rem;
+      }
+    }
+    
+    .cta_text {
+      font-size: 1rem;
+      margin-bottom: 2rem;
+    }
+    
+    .btn-to-courses {
+      padding: 0.875rem 2rem;
+      font-size: 1rem;
+      width: 100%;
+      max-width: 280px;
+    }
+  }
+}

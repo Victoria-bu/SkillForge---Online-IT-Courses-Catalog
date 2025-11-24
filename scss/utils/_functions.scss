@@ -1,0 +1,9 @@
+// Конвертує px в rem
+@function rem($pixels) {
+  @return calc($pixels / 16) * 1rem;
+}
+
+// Робить колір світлішим
+@function lighten-color($color, $percent) {
+  @return lighten($color, $percent);
+}

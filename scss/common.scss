@@ -1,0 +1,9 @@
+// scss/common.scss
+
+@use 'utils/variables' as *;
+@use 'utils/mixins' as *;
+@use 'utils/functions' as *;
+@use 'components/header';
+@use 'components/footer';
+@use 'components/buttons';
+// Всі загальні компоненти, які потрібні на всіх сторінках

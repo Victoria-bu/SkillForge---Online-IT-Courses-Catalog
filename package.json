@@ -2,12 +2,22 @@
   "name": "skillforge",
   "version": "1.0.0",
   "type": "module",
-  "main": "app.js",
+ 
   "scripts": {
-    "start": "node app.js"
+    "start": "node app.js",
+    "dev": "parcel watch scss/common.scss scss/home.scss scss/courses.scss scss/pricing.scss scss/course-details.scss --dist-dir public/css",
+    "build": "parcel build scss/home.scss scss/courses.scss scss/pricing.scss scss/course-details.scss --dist-dir public/css"
   },
   "dependencies": {
     "ejs": "^3.1.10",
-    "express": "^4.21.2"
+    "express": "^4.21.2",
+    "sass": "^1.93.3"
+  },
+  "devDependencies": {
+    "@parcel/transformer-sass": "^2.16.1",
+    "autoprefixer": "^10.4.21",
+    "parcel": "^2.16.1",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^4.1.16"
   }
 }

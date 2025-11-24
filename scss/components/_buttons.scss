@@ -1,0 +1,41 @@
+// scss/components/_buttons.scss
+// scss/components/_buttons.scss
+@use '../utils/variables' as *;
+
+.btn {
+  display: inline-block;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 6px;
+  font-weight: 500;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: inherit;
+  
+  // Solid purple button
+  &.solid {
+    &.purple {
+      background: $primary-color;
+      color: white;
+      
+      &:hover {
+        background: #4a40b8; // Темніший відтінок замість darken()
+        box-shadow: 0 8px 20px rgba(92, 80, 225, 0.3);
+      }
+    }
+  }
+  
+  // Clear button
+  &.clear-btn {
+    background: transparent;
+    border: 2px solid $primary-color;
+    color: $primary-color;
+    
+    &:hover {
+      background: $primary-color;
+      color: white;
+    }
+  }
+}

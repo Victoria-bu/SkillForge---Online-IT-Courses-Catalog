@@ -3,10 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/home.css">
+  <link rel="stylesheet" href="/css/courses.css">
+  <link rel="stylesheet" href="/css/common.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
   <title>Courses - SkillForge</title>
 </head>
  
-<body>
+<body class="courses-page">
+    <!-- Background Shapes -->
+  <div id="background-shapes">
+    <div class="shape shape-1"></div>
+    <div class="shape shape-2"></div>
+  </div>
   <%- include('partials/header') %>
   <% 
   let filteredCourses = courses;
@@ -24,15 +34,17 @@
   <main>
     <!-- POPULAR LANGUAGES -->
     <section id="popular-languages">
-      <picture>
-        <source media="(max-width: 768px)" srcset="/images/mobile-images/trand-icon-mobile.svg">
-        <img src="/images/mobile-images/trand-icon.svg" alt="trend icon">
-      </picture>
-
-      <h2 data-i18n="popularLanguagesTitle">Popular Languages</h2>
+      <div class="section-header">
+        <picture>
+          <source media="(max-width: 768px)" srcset="/images/mobile-images/trand-icon-mobile.svg">
+          <img src="/images/mobile-images/trand-icon.svg" alt="trand icon">
+        </picture>
+        <h2 data-i18n="popularLanguagesTitle">Tranding Languages</h2>
+      </div>
+      
       <div class="language-buttons" role="group" aria-label="Programming languages">
         <a href="/courses?topic=python">
-          <button  aria-label="Show Python courses"><img src="/images/logos career/python.svg" alt="Python icon">Python</button>
+          <button aria-label="Show Python courses"><img src="/images/logos career/python.svg" alt="Python icon">Python</button>
         </a>
         <a href="/courses?topic=js">
           <button aria-label="Show JavaScript courses"><img src="/images/logos career/javascript.svg" alt="JavaScript icon">JavaScript</button>
@@ -47,21 +59,24 @@
           <button aria-label="Show HTML and CSS courses"><img src="/images/logos career/css.svg" alt="HTML and CSS icon">HTML & CSS</button>
         </a>
       </div>
-    </section>
+    </section> 
     
-
-    <% if (currentTopic) { %>
-      <div class="filter-bar">
-        <img src="/images/filter.svg" alt="filter icon">
-        <p data-i18n="Filters">Filters</p>
-        <a href="/courses" data-i18n="clearFilter">Clear filters</a>
-      </div>
-    <% } %>
-
+          
     <!-- FILTERS + COURSES WRAPPER -->
     <section class="courses-wrapper">
+      <div class="filters-top-row">
+        <div class="filters-header">
+          <img src="/images/filter.svg" alt="filter icon">
+          <h3 data-i18n="Filters">Filters</h3>
+        </div>
+
+        <div class="clear-filters">
+          <a href="/courses" data-i18n="clearFilter">Clear filters</a>
+        </div>
+      </div>
+      
       <aside class="filters" aria-label="Course filters">
-        <details open>
+        <details>
           <summary data-i18n="skillLevel">Skill level</summary>
           <label><input type="checkbox" name="level" value="all" checked> All</label>
           <label><input type="checkbox" name="level" value="basic"> Basic</label>
@@ -78,7 +93,7 @@
           <label><input type="checkbox" name="topic" value="design"> Design</label>
         </details>
 
-        <details open>
+        <details>
           <summary data-i18n="subscription">Subscription</summary>
           <label><input type="checkbox" name="sub" value="free"> Free</label>
           <label><input type="checkbox" name="sub" value="pro"> Pro</label>
@@ -114,7 +129,7 @@
                 <% if(course.type === 'Pro'){ %>
                   <img src="/images/Pro Icon.svg" alt="pro icon">
                 <% } else if(course.type === 'Free'){ %>
-                  <span class="tag free" aria-label="Free course">FREE</span>
+                  <span class="tag free" aria-label="Free course">Free</span>
                 <% } %>
                 </div>
 

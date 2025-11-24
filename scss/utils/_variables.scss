@@ -1,0 +1,36 @@
+// Кольори
+$primary-color: #5C50E1;
+$secondary-color: #C153E3;
+$hero-background: #EEEDFF;
+$text-primary: #1a1a1a;
+$text-secondary: #555;
+$white: #ffffff;
+$border-color: #D8D8D8;
+
+// Шрифти
+$font-inter: 'Inter', sans-serif;
+$font-manrope: 'Manrope', sans-serif;
+
+// Брейкпоінти
+$mobile: 768px;
+$tablet: 1024px;
+$desktop: 1200px;
+
+// Typography map для міксінів
+$typography: (
+  'h1': (
+    font-family: $font-inter,
+    font-weight: 700,
+    font-size: 72px
+  ),
+  'h2': (
+    font-family: $font-inter, 
+    font-weight: 500,
+    font-size: 36px
+  ),
+  'body': (
+    font-family: $font-manrope,
+    font-weight: 400, 
+    font-size: 16px
+  )
+);

@@ -1,0 +1,51 @@
+// Медіа-запити
+@mixin mobile {
+  @media (max-width: #{$mobile}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (max-width: #{$tablet}) {
+    @content;
+  }
+}
+
+// Flexbox
+@mixin flex($direction: row, $justify: flex-start, $align: stretch) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+// Контейнер
+@mixin container($max-width: 1200px) {
+  max-width: $max-width;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+// Кнопки
+@mixin button-primary {
+  background: $primary-color;
+  color: $white;
+  border: none;
+  border-radius: 8px;
+  padding: 1rem 2rem;
+  font-family: $font-manrope;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: lighten-color($primary-color, 10%);
+    transform: translateY(-2px);
+  }
+}

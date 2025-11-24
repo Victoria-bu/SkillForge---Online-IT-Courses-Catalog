@@ -1,0 +1,13 @@
+{
+  "liveSassCompile.settings.formats": [
+    {
+      "format": "expanded",
+      "extensionName": ".css",
+      "savePath": "/public/css/"
+    }
+  ],
+  "liveSassCompile.settings.excludeList": [
+    "**/node_modules/**",
+    ".vscode/**"
+  ]
+}

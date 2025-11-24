@@ -22,14 +22,21 @@ if (process.env.NODE_ENV === 'development') {
 // Home
 app.get('/', (req, res) => {
   const courses = loadCourses();
-  res.render('home', { courses: courses.slice(0, 3) });
+  res.render('home', { 
+    courses: courses.slice(0, 3),
+    currentPage: 'home'  // ← ДОДАНО
+  });
 });
 
 // Courses page
 app.get("/courses", (req, res) => {
   const courses = loadCourses();
   const topic = req.query.topic;
-  res.render("courses", { courses, topic });
+  res.render("courses", { 
+    courses, 
+    topic,
+    currentPage: 'courses'  // ← ДОДАНО
+  });
 });
 
 // Single course details
@@ -39,13 +46,26 @@ app.get("/course/:id", (req, res) => {
   if (!course) return res.status(404).send("Course not found");
   
   const otherCourses = courses.filter(c => c.id !== req.params.id).slice(0, 5);
-  res.render("course-details", { course, courses: otherCourses });
+  res.render("course-details", { 
+    course, 
+    courses: otherCourses,
+    currentPage: 'courses'  // ← ДОДАНО (бо це підсторінка курсів)
+  });
 });
 
 // Pricing
 app.get("/pricing", (req, res) => {
-  res.render("pricing");
+  res.render("pricing", {
+    currentPage: 'pricing'  // ← ДОДАНО
+  });
 });
 
-const PORT = 3005;
+// About (якщо є сторінка)
+app.get("/about", (req, res) => {
+  res.render("about", {
+    currentPage: 'about'  // ← ДОДАНО
+  });
+});
+
+const PORT = 3012;
 app.listen(PORT, () => console.log(` Server running at http://localhost:${PORT}`));

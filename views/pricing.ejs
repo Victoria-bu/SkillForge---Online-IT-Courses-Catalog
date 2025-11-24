@@ -3,6 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/home.css">
+    <link rel="stylesheet" href="/css/common.css">
+    <link rel="stylesheet" href="/css/pricing.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <title data-i18n="pricing.title">Pricing</title>
 </head>
 <body>
@@ -14,92 +18,105 @@
         <h3 id="pricing-heading" data-i18n="pricing.heading">Our Pricing</h3>
         <img src="/images/pricing page/doodle.svg" alt="doodle">
         <p data-i18n="pricing.intro">Welcome to SkillForge's Pricing page, where we offer two comprehensive plans to fit your learning journey: Free and Pro. We are committed to providing flexible and affordable access to high-quality IT education.
-           Whether you're just starting to explore tech or are a seasoned professional upgrading your skills, we have a plan designed for you. Explore your options below and choose the one that best aligns with your goals.</p>
+          Whether you're just starting to explore tech or are a seasoned professional upgrading your skills, we have a plan designed for you. Explore your options below and choose the one that best aligns with your goals.</p>
       </div>
     </section>
 
-    <!-- Pricing plans -->
-    <section class="pricing-plans">
-      <div class="container pricing-plans_container">
-        <!-- Switcher -->
-        <div class="pricing-switcher" aria-label="Billing options">
-          <label>
-            <input type="radio" name="billing" value="monthly" checked aria-label="Monthly billing"> 
-            <span data-i18n="pricing.monthly">Monthly</span>
-          </label>
-          <label>
-            <input type="radio" name="billing" value="yearly" aria-label="Yearly billing">
-            <span data-i18n="pricing.yearly">Yearly</span>
-          </label>
+<section class="pricing-plans">
+  <div class="pricing-plans_container">
+    <div class="pricing-switcher" aria-label="Billing options">
+      <label>
+        <input type="radio" name="billing" value="monthly" checked aria-label="Monthly billing"> 
+        <span data-i18n="pricing.monthly">Monthly</span>
+      </label>
+      <label>
+        <input type="radio" name="billing" value="yearly" aria-label="Yearly billing">
+        <span data-i18n="pricing.yearly">Yearly</span>
+      </label>
+    </div>
+
+    <div class="pricing-plans_grid">
+    <article class="pricing-plan" itemscope itemtype="https://schema.org/Offer" aria-labelledby="free-plan-heading">
+      <div class="plan-header free"> 
+        <h2 id="free-plan-heading" data-i18n="pricing.freePlanTitle" itemprop="name">Free Plan</h2>
+      </div>
+      <div class="plan-content">
+        <p class="price" data-i18n="pricing.freePlanPrice" itemprop="price">$0<span>/month</span></p>
+        <div class="features-wrapper">
+        <div class="features-title">Available Features</div>
+        <ul>
+          <li>
+            <img src="/images/pricing page/Approved.svg" alt="no" aria-hidden="true">
+            <span data-i18n="pricing.free.features1">Access to selected free courses</span>
+          </li>
+          <li>
+            <img src="/images/pricing page/Approved.svg" alt="no" aria-hidden="true">
+            <span data-i18n="pricing.free.features2">All course materials and resources</span>
+          </li>
+          <li>
+            <img src="/images/pricing page/NO.svg" alt="no" aria-hidden="true">
+            <span data-i18n="pricing.free.features3">Access to all Pro Plan courses</span>
+          </li>
+          <li>
+            <img src="/images/pricing page/NO.svg" alt="no" aria-hidden="true">
+            <span data-i18n="pricing.free.features4">Course completion certificates</span>
+          </li>
+          <li>
+            <img src="/images/pricing page/NO.svg" alt="no" aria-hidden="true">
+            <span data-i18n="pricing.free.features5">Priority support from our mentors</span>
+          </li>
+        </ul>
         </div>
-
-        <!-- Free plan -->
-        <article class="pricing-plan" itemscope itemtype="https://schema.org/Offer" aria-labelledby="free-plan-heading">
-          <h2 id="free-plan-heading" data-i18n="pricing.freePlanTitle" itemprop="name">Free Plan</h2>
-          <p class="price" data-i18n="pricing.freePlanPrice" itemprop="price">$0 <span>/ month</span></p>
-          <ul>
-            <li>
-              <img src="/images/pricing page/Approved.svg" alt="no" aria-hidden="true">
-              <span data-i18n="pricing.free.features1">Access to selected free courses</span>
-            </li>
-            <li>
-              <img src="/images/pricing page/Approved.svg" alt="no" aria-hidden="true">
-              <span data-i18n="pricing.free.features2">All course materials and resources</span>
-            </li>
-            <li>
-              <img src="/images/pricing page/NO.svg" alt="no" aria-hidden="true">
-              <span data-i18n="pricing.free.features3">Access to all Pro Plan courses</span>
-            </li>
-            <li>
-              <img src="/images/pricing page/NO.svg" alt="no" aria-hidden="true">
-              <span data-i18n="pricing.free.features4">Course completion certificates</span>
-            </li>
-            <li>
-              <img src="/images/pricing page/NO.svg" alt="no" aria-hidden="true">
-              <span data-i18n="pricing.free.features5">Priority support from our mentors</span>
-            </li>
-          </ul>
-          <button class="btn solid purple" aria-label="Get started with Free plan" data-i18n="pricing.free.button">
-            Get Started
-          </button>
-        </article>
-      
-        <!-- Pro plan -->
-        <article class="pricing-plan" itemscope itemtype="https://schema.org/Offer" aria-labelledby="pro-plan-heading">
-          <h2 id="pro-plan-heading" data-i18n="pricing.proPlanTitle" itemprop="name">Pro Plan</h2>
-          <span class="recommended-badge" aria-label="Recommended plan">
-            <img src="/images/pricing page/recommend icon.svg" alt="recommend-icon" aria-hidden="true">
-            <span data-i18n="pricing.pro.recommended">Recommended</span>
-          </span>
-          <p class="price" data-i18n="pricing.proPlanPrice" itemprop="price">$15 <span>/ month</span></p>
-          <ul>
-            <li>
-              <img src="/images/pricing page/Approved.svg" alt="yes" aria-hidden="true">
-              <span data-i18n="pricing.pro.features1">Access to selected free courses</span>
-            </li>
-            <li>
-              <img src="/images/pricing page/Approved.svg" alt="yes" aria-hidden="true">
-              <span data-i18n="pricing.pro.features2">All course materials and resources</span>
-            </li>
-            <li>
-              <img src="/images/pricing page/Approved.svg" alt="yes" aria-hidden="true">
-              <span data-i18n="pricing.pro.features3">Access to all Pro Plan courses</span>
-            </li>
-            <li>
-              <img src="/images/pricing page/Approved.svg" alt="yes" aria-hidden="true">
-              <span data-i18n="pricing.pro.features4">Course completion certificates</span>
-            </li>
-            <li>
-              <img src="/images/pricing page/Approved.svg" alt="yes" aria-hidden="true">
-              <span data-i18n="pricing.pro.features5">Priority support from our mentors</span>
-            </li>
-          </ul>
-          <button class="btn solid purple" aria-label="Get started with Pro plan" data-i18n="pricing.pro.button">
-            Get Started
-          </button>
-        </article>
+        <button class="btn outline purple" aria-label="Get started with Free plan" data-i18n="pricing.free.button">
+          Get Started
+        </button>
       </div>
-    </section>
+    </article>
+  
+    <article class="pricing-plan pro-plan" itemscope itemtype="https://schema.org/Offer" aria-labelledby="pro-plan-heading">
+      <span class="recommended-badge" aria-label="Recommended plan">
+          <img src="/images/pricing page/recommend icon.svg" alt="recommend-icon" aria-hidden="true">
+          <span data-i18n="pricing.pro.recommended">Recommended</span>
+      </span>
+      
+      <div class="plan-header pro"> 
+        <h2 id="pro-plan-heading" data-i18n="pricing.proPlanTitle" itemprop="name">Pro Plan</h2>
+      </div>
+      <div class="plan-content">
+        <p class="price" data-i18n="pricing.proPlanPrice" itemprop="price">$15<span>/month</span></p>
+        <div class="features-wrapper">
+        <div class="features-title">Available Features</div>
+        <ul>
+          <li>
+            <img src="/images/pricing page/Approved.svg" alt="yes" aria-hidden="true">
+            <span data-i18n="pricing.pro.features1">Access to selected free courses</span>
+          </li>
+          <li>
+            <img src="/images/pricing page/Approved.svg" alt="yes" aria-hidden="true">
+            <span data-i18n="pricing.pro.features2">All course materials and resources</span>
+          </li>
+          <li>
+            <img src="/images/pricing page/Approved.svg" alt="yes" aria-hidden="true">
+            <span data-i18n="pricing.pro.features3">Access to all Pro Plan courses</span>
+          </li>
+          <li>
+            <img src="/images/pricing page/Approved.svg" alt="yes" aria-hidden="true">
+            <span data-i18n="pricing.pro.features4">Course completion certificates</span>
+          </li>
+          <li>
+            <img src="/images/pricing page/Approved.svg" alt="yes" aria-hidden="true">
+            <span data-i18n="pricing.pro.features5">Priority support from our mentors</span>
+          </li>
+        </ul>
+        </div>
+        <button class="btn solid purple" aria-label="Get started with Pro plan" data-i18n="pricing.pro.button">
+          Get Started
+        </button>
+      </div>
+    </article>
+  </div>
+  </div>
+</section>
 
     <!-- FAQ section -->
     <section class="faq">

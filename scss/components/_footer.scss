@@ -1,0 +1,150 @@
+// scss/components/_footer.scss
+@use '../utils/variables' as *;
+
+.footer {
+  background: #EEEDFF; 
+  padding: 4rem 0 0 0;
+  font-family: 'Manrope', sans-serif;
+
+  .container.footer {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 3rem;
+    margin-bottom: 3rem;
+
+    @media (max-width: 1024px) {
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+  }
+
+  // Footer Columns
+  .footer_col {
+    &:first-child {
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        margin-bottom: 1.5rem;
+
+        svg {
+          width: 40px;
+          height: 41.5px;
+        }
+
+        h4 {
+          font-family: 'Inter', sans-serif;
+          font-weight: 700;
+          font-size: 1.5rem;
+          color: black;
+          margin: 0;
+        }
+      }
+
+      .footer_text {
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 1.6;
+        color: black;
+        margin-bottom: 1rem;
+        max-width: 350px;
+      }
+
+      .footer_socials {
+        display: flex;
+        gap: 1rem;
+
+        a {
+          display: block;
+          transition: transform 0.3s ease;
+
+          &:hover {
+            transform: translateY(-2px);
+          }
+
+          img {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+          }
+        }
+      }
+    }
+
+    p {
+      font-family: 'Manrope', sans-serif;
+      font-weight: 600;
+      font-size: 1.125rem;
+      color: black;
+      margin-bottom: 1.5rem;
+    }
+
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+
+      li {
+        margin-bottom: 0.75rem;
+
+        a {
+          font-size: 1rem;
+          color: black;
+          text-decoration: none;
+          transition: color 0.3s ease;
+
+          &:hover {
+            color: #5C50E1;
+          }
+        }
+      }
+    }
+
+    // Contacts column
+    .footer_contacts {
+      li {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        margin-bottom: 1rem;
+        font-size: 1rem;
+        color: black;
+        line-height: 1.5;
+
+        img {
+          flex-shrink: 0;
+        }
+      }
+    }
+  }
+
+  // Bottom Section
+  .footer_bottom {
+    padding: 0.5rem 0;
+
+    hr {
+      border-top: 1px solid #878787;
+      margin: 0 0 0.5rem 0;
+      opacity: 0.22;
+    }
+
+    p {
+      text-align: center;
+      font-size: 0.875rem;
+      color: #000000;
+      margin: 0;
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+  }
+}

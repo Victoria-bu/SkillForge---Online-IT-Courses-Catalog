@@ -1,0 +1,591 @@
+@use 'utils/functions' as *;
+@use 'utils/variables';
+@use 'base/reset';
+@use 'base/typography';
+
+
+// Pricing Hero Section 
+.pricing-hero {
+  padding: 7rem 0 3rem 0;
+  background: #ffffff;
+  
+  .pricing-hero_container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; 
+    
+    h3 {
+      font-family: 'Inter', sans-serif;
+      font-size: 36px;
+      font-weight: 500;
+      color: #000000;
+      margin-bottom: 1.5rem;
+      letter-spacing: -5%; 
+      position: relative;
+      z-index: 2;
+    }
+    
+    img {
+      width: 130px;
+      height: 17px;
+      transform: translateY(-38px);
+      margin-left: 81px;
+      z-index: 1;
+    }
+    
+    p {
+      font-family: 'Manrope', sans-serif;
+      font-size: 16px;
+      line-height: 1.63;
+      color: #000000;
+      max-width: 867px;
+      text-align: left; 
+      margin: 0;
+      margin-left: 18rem;
+    }
+  }
+}
+
+// Pricing Plans Section
+.pricing-plans {
+  background: #ffffff;
+  
+  .pricing-plans_container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+  }
+}
+
+// Pricing Switcher
+.pricing-switcher {
+  display: flex;
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 4px;
+  margin-bottom: 1rem;
+  
+  label {
+    position: relative;
+    cursor: pointer;
+    
+    input[type="radio"] {
+      position: absolute;
+      opacity: 0;
+      
+      &:checked + span {
+        background: #5C50E1;
+        color: #ffffff;
+      }
+    }
+    
+    span {
+      display: block;
+      padding: 12px 32px;
+      border-radius: 8px;
+      font-family: 'Manrope', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      color: #555;
+      transition: all 0.3s ease;
+      
+      &:hover {
+        background: rgba(92, 80, 225, 0.1);
+      }
+    }
+  }
+}
+
+.pricing-plans_container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.pricing-plans_grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  width: 100%;
+  max-width: 1140px; 
+  
+  @media (max-width: 1024px) {
+    grid-template-columns: 1fr;
+    max-width: 560px;
+  }
+}
+
+// Individual Pricing Plan 
+.pricing-plan {
+  background: #F7F6FF;
+  border: 1px solid #e0e0e0;
+  border-radius: 20px;
+  padding: 0;
+  position: relative;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  }
+  
+  &.free-plan {
+     background: #F7F6FF; 
+     border: 1px solid #D9D9D9;
+  }
+  
+  &.pro-plan {
+    background: #F7F6FF; 
+    border: 1px solid #D9D9D9; 
+  }
+  
+  // Заголовок картки
+  .plan-header {
+    position: center;
+    margin-top: 30px;
+    margin-left: 10px;
+    text-align: center;
+    width: 95%;
+    
+    &.free {
+      background: #EEEDFF; 
+      border-radius: 7px;
+      border: 1px solid #5C50E1;
+      h2 {
+        color: #000000; 
+        padding: 0.25rem; 
+        font-size: 1.75rem;
+        font-weight: 600;
+        margin: 0;
+      }
+    }
+    
+    &.pro {
+      background: #FAEBFF; 
+      border-radius: 7px;
+      border: 1px solid #C153E3;
+      h2 {
+        color: #000000; 
+        padding: 0.25rem; 
+        font-size: 1.75rem;
+        font-weight: 600;
+        margin: 0;
+      }
+    }
+  }
+  
+  // Recommended Badge 
+  .recommended-badge {
+    position: absolute; 
+    top: -40px;
+    right: 1.5rem; 
+    z-index: 10;
+    
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: #f5f5ff; 
+    border: 2px solid #5C50E1; 
+    color: #5C50E1; 
+    padding: 6px 16px; 
+    border-radius: 10px 10px 0px 0px; 
+    font-family: 'Manrope', sans-serif;
+    font-size: 0.875rem;
+    font-weight: 800;
+    
+    img {
+      width: 24px;
+      height: 24px;
+    }
+  }
+  
+  .plan-content {
+    padding: 1rem 2.5rem 2.5rem 2.5rem; 
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .price {
+    font-family: 'Inter', sans-serif;
+    font-size: 72px; 
+    font-weight: 800; 
+    letter-spacing: -1%;
+    color: #1a1a1a;
+    margin: 2rem 0 0 0; 
+    padding-bottom: 2.5rem; 
+    text-align: center; 
+    
+    span {
+      font-family: 'Manrope', sans-serif;
+      font-size: 16px; 
+      font-weight: 800; 
+      letter-spacing: -1%;
+      color: #555;
+      display: inline-block;
+      
+      margin-left: 5px;
+    }
+  }
+.features-wrapper{
+    padding: 1rem 0 0 0;
+    margin: 0 0 3rem 0;
+    flex-grow: 1;
+    
+    background: #ffffff; 
+    border-radius: 4px;
+    border: 1px solid #D9D9D9; 
+}
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.5rem 0; 
+    flex-grow: 1;
+    
+
+    padding: 1.5rem 0;
+
+    li {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 0.75rem;
+      margin-left: 1.5rem;
+      margin-right: 1.5rem;
+      font-family: 'Manrope', sans-serif;
+      font-size: 16px;
+      color: #000000; 
+      font-weight: 500;
+      
+      padding: 0.5rem 1.5rem; 
+      border-radius: 4px;
+      border: 1px solid #D9D9D9; 
+      
+      &:last-child {
+        margin-bottom: 0;
+      }
+      
+      img {
+        width: 27px;
+        height: 27px;
+        flex-shrink: 0;
+      }
+      
+      span {
+          padding: 0.25rem 0;
+      }
+    }
+  }
+
+
+  .features-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 18px;
+    font-weight: 800;
+    color: #666666;
+    
+    text-align: center;
+  }
+  
+  // Кнопка "Get started"
+  .btn {
+    width: 100%;
+    padding: 1.2rem 2rem; 
+    border: none;
+    border-radius: 12px;
+    font-family: 'Manrope', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: auto; 
+    
+    // Кнопка Free Plan
+    &.outline.purple {
+      background: #ffffff;
+      color: #5C50E1;
+      border: 2px solid #5C50E1;
+      
+      &:hover {
+        transform: translateY(-2px);
+      }
+    }
+    
+    // Кнопка Pro Plan
+    &.solid.purple {
+      background: #5C50E1;
+      color: #ffffff;
+      
+      &:hover {
+        background: #4a4acc;
+        transform: translateY(-2px);
+      }
+    }
+  }
+}
+
+// FAQ Section
+.faq {
+  padding: 6rem 0;
+  background: #ffffff;
+  
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    
+    h2 {
+      font-family: 'Inter', sans-serif;
+      font-size: 36px;
+      font-weight: 600;
+      color: #000000;
+      text-align: center;
+      margin-bottom: 3rem;
+      letter-spacing: -5%;
+    }
+    
+    details {
+      background: #ffffff;
+      border: 1px solid #D9D9D9;
+      border-radius: 4px;
+      margin-bottom: 1rem;
+      transition: all 0.3s ease;
+      
+      &:hover {
+        border-color: #5C50E1;
+      }
+      
+      &[open] {
+        border-color: #5C50E1;
+        box-shadow: 0 4px 20px rgba(92, 80, 225, 0.1);
+        
+        summary {
+          img {
+            transform: rotate(180deg);
+          }
+        }
+      }
+      
+      summary {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 1.5rem;
+        font-family: 'Manrope', sans-serif;
+        font-size: 16px;
+        font-weight: 700;
+        color: #000000;
+        cursor: pointer;
+        list-style: none;
+        
+        &::-webkit-details-marker {
+          display: none;
+        }
+        
+        img {
+          width: 40px;
+          height: 40px;
+          transition: transform 0.3s ease;
+        }
+        
+        &:hover {
+          color: #5C50E1;
+        }
+      }
+      
+      p {
+        padding: 0 2rem 1.5rem 2rem;
+        margin: 0;
+        font-family: 'Manrope', sans-serif;
+        font-size: 16px;
+        line-height: 1.5;
+        color: #000000;
+        border-top: 1px solid #f0f0f0;
+        padding-top: 1.5rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .pricing-hero {
+    padding: 3rem 0;
+    
+    .pricing-hero_container {
+      h3 {
+        font-size: 32px;
+      }
+      
+      img {
+        width: 100px;
+        right: 30px;
+      }
+      
+      p {
+        font-size: 16px;
+      }
+    }
+  }
+  
+  .pricing-plans {
+    padding: 3rem 0;
+  }
+  
+  .pricing-plans_grid {
+    grid-template-columns: 1fr;
+    max-width: 500px;
+  }
+  
+  .faq {
+    padding: 4rem 0;
+    
+    .container h2 {
+      font-size: 2rem;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .pricing-hero {
+    padding: 2rem 0;
+    
+    .pricing-hero_container {
+      padding: 0 1.5rem;
+      
+      h3 {
+        font-size: 28px;
+        margin-bottom: 1.5rem;
+      }
+      
+      img {
+        display: none;
+      }
+      
+      p {
+        font-size: 16px;
+      }
+    }
+  }
+  
+  .pricing-plans {
+    padding: 2rem 0;
+    
+    .pricing-plans_container {
+      padding: 0 1.5rem;
+      gap: 2rem;
+    }
+  }
+  
+  .pricing-switcher {
+    width: 100%;
+    max-width: 300px;
+    
+    label span {
+      padding: 10px 24px;
+      font-size: 0.875rem;
+    }
+  }
+  
+  .pricing-plan {
+    .plan-header {
+      padding: 1.5rem 2rem;
+      
+      h2 {
+        font-size: 1.5rem;
+      }
+    }
+    
+    .plan-content {
+      padding: 2rem;
+    }
+    
+    .price {
+      font-size: 2.5rem;
+    }
+    
+    ul li {
+      font-size: 0.875rem;
+    }
+    
+    .recommended-badge {
+      right: 1rem;
+      font-size: 0.75rem;
+      padding: 6px 12px;
+    }
+  }
+  
+  .faq {
+    padding: 3rem 0;
+    
+    .container {
+      padding: 0 1.5rem;
+      
+      h2 {
+        font-size: 1.75rem;
+        margin-bottom: 2rem;
+      }
+      
+      details {
+        summary {
+          padding: 1.25rem 1.5rem;
+          font-size: 1rem;
+        }
+        
+        p {
+          padding: 0 1.5rem 1.25rem 1.5rem;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .pricing-hero .pricing-hero_container {
+    padding: 0 1rem;
+    
+    h3 {
+      font-size: 24px;
+    }
+    
+    p {
+      font-size: 14px;
+    }
+  }
+  
+  .pricing-plans .pricing-plans_container {
+    padding: 0 1rem;
+  }
+  
+  .pricing-plan {
+    .plan-content {
+      padding: 1.5rem;
+    }
+    
+    .price {
+      font-size: 2rem;
+    }
+  }
+  
+  .faq .container {
+    padding: 0 1rem;
+    
+    h2 {
+      font-size: 1.5rem;
+    }
+  }
+}
