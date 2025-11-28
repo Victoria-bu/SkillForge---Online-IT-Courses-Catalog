@@ -3,7 +3,6 @@
 @use 'utils/mixins';
 
 // Base
-@use 'base/reset';
 @use 'base/typography';
 
 
@@ -27,7 +26,6 @@ $subtitle-color: #555;
   position: relative;
   width: 100%;
 
-
   // LEFT SIDE - CONTENT
   .hero-content {
     padding-left: 140px;
@@ -46,7 +44,7 @@ $subtitle-color: #555;
       line-height: 1;
       color: $text-color;
       margin-bottom: 3rem;
-      white-space: nowrap; // Запобігає переносу слів
+      white-space: nowrap;
       margin-top: -4.5rem;
 
       .title-line {
@@ -54,14 +52,12 @@ $subtitle-color: #555;
         line-height: 1;
         
         &:first-child {
-          // Перший рядок - з ракетою
-          padding-left: 125px; // Відступ для ракети
-          
+          padding-left: 125px;
+          position: relative; 
         }
       }
 
       .title-line-second {
-        // Другий рядок - починається під ракетою
         padding-left: 32px;
         
         .accent-text {
@@ -118,87 +114,181 @@ $subtitle-color: #555;
   }
 
   // RIGHT SIDE - BIG IMAGE
-.hero-image {
-  height: 100%;
-  display: flex;
-  align-items: flex-end;
-  justify-content: flex-end;
-  position: relative;
-  
-  img {
-    width: auto; 
-    height: 100vh; // Висота на всю висоту екрану
-    min-height: 100vh;
-    object-fit: cover;
-    object-position: center bottom; // Вирівнюємо по низу
-    display: block;
-    position: absolute;
-    right: 0; // Вирівнюємо праворуч
-    bottom: 0; // Вирівнюємо по низу
-    max-width: none; // Прибираємо обмеження ширини
+  .hero-image {
+    height: 100%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    position: relative;
+    
+    img {
+      width: auto; 
+      height: 100vh;
+      min-height: 100vh;
+      object-fit: cover;
+      object-position: center bottom;
+      display: block;
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      max-width: none;
+    }
   }
-}
 
-  @media (max-width: 1200px) {
+  // Брейкпоінт 1350px
+  @media (max-width: 1350px) {
     .hero-content {
       padding-left: 80px;
+      margin-top: -10rem;
       
       .title {
-        font-size: 3.5rem;
+        font-size: 3.8rem;
+        
+        .title-line:first-child {
+          padding-left: 100px;
+        }
         
         .title-line-second {
-          margin-left: 75px;
+          padding-left: 25px;
         }
       }
       
-      .subtitle,
-      .btn-group {
-        margin-left: 75px;
+      .subtitle {
+        margin-left: 25px;
+        font-size: 1.2rem;
       }
+      
+      .btn-group {
+        margin-left: 25px;
+      }
+    }
+    
+    .hero-image img {
+      margin-top: -18rem;
+      width: 1000px;
+      height: 1000px;
+      object-fit: contain;
+      position: relative;
+      object-position: center bottom;
     }
   }
 
-  @media (max-width: 768px) {
-    grid-template-columns: 1fr;
-    min-height: auto;
-    
+  // Планшет (1050px)
+  @media (max-width: 1050px) {
     .hero-content {
-      padding: 3rem 2rem;
-      text-align: center;
+      padding-left: 60px;
       
       .title {
-        font-size: 2.5rem;
-        align-items: center;
+        font-size: 3.2rem;
+        line-height: 2;
         
-        .title-line {
-          flex-direction: column;
-          gap: 0.5rem;
+        .title-line:first-child {
+          padding-left: 110px;
+          line-height: 1.3;
         }
-        
-        .title-line-second {
-          margin-left: 0;
-        }
-      }
-      
-      .subtitle,
-      .btn-group {
-        margin-left: 0;
-      }
-      
-      .btn-group {
-        flex-direction: column;
-        align-items: center;
       }
     }
     
-    .hero-image {
-      height: 100vh;
+    .btn-group {
+      margin-left: 25px;
+    }
+    
+    .hero-image img {
+      margin-top: -5rem;
+      width: 800px;
+      height: 800px;
+      object-fit: contain;
+      position: relative; 
+      object-position: center bottom;
+    }
+  }
+
+  // Мобільний (768px)
+@media (max-width: 768px) {
+  grid-template-columns: 1fr;
+  min-height: auto;
+  
+  .hero-content {
+    padding: 2rem 1rem;
+    margin-top: 4rem;
+    text-align: left; 
+    
+    .title {
+      font-size: 25px;
+      white-space: normal;
+      align-items: flex-start;
+      margin-top: -2rem;
       
-      img {
-        max-height: 100vh;
+      .title-line {
+        &:first-child {
+          padding-left: 50px;
+          position: relative;
+          display: block;
+          
+          picture {
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 40px;
+            height: 40px;
+            
+            img {
+              width: 100%;
+              height: auto;
+            }
+          }
+        }
+      }
+      
+      .title-line-second {
+        padding-left: 0;
+        text-align: left;
+      }
+    }
+    
+    .subtitle {
+      margin-left: 0;
+      font-size: 1rem;
+      margin-top: -1rem;
+      margin-bottom: 1rem;
+      text-align: left;
+      max-width: 100%;
+    }
+    
+    .btn-group {
+      margin-left: 0;
+      flex-direction: row; // Кнопки в одну лінію
+      justify-content: center;
+      gap: 1rem;
+      
+      .btn {
+        padding: 12px 24px;
+        font-size: 16px;
+        white-space: nowrap;
+        min-width: 130px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
     }
   }
+  
+   .hero-image {
+    margin-top: -29rem; 
+    margin-bottom: 0;
+    margin-right: 0; 
+    height: auto; 
+    
+    img {
+      width: 100%; 
+      height: 300px; 
+      object-fit: contain;
+      position: relative; 
+    }
+  }
+}
 }
 
 // CAREER PATHS SECTION
@@ -287,7 +377,7 @@ $subtitle-color: #555;
   // Контейнер для кнопок
   .careers-container {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); // 2 стовпчики
+    grid-template-columns: repeat(2, 1fr);
     gap: 1.5rem;
     margin-bottom: 2rem;
 
@@ -396,7 +486,7 @@ $subtitle-color: #555;
     }
     
     .career-btn {
-      width: 100%;
+      width: 263px;
       height: 60px;
       min-height: 60px;
       padding: 1rem;
@@ -484,7 +574,7 @@ $subtitle-color: #555;
       &[width="60"] {
         width: 80px;
         height: auto;
-        margin-top: -10px; // Піднімаємо менші логотипи
+        margin-top: -10px;
       }
       
       &:nth-child(3),
