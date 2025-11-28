@@ -1,6 +1,6 @@
+
 // course-details.scss
 @use 'utils/variables';
-@use 'base/reset';
 @use 'base/typography';
 
 html, body {
@@ -16,24 +16,29 @@ $sidebar-reserve: $sidebar-width + $sidebar-gap;
   background: #EEEDFF;
   padding: 0;
   position: relative;
-
 }
 
-// Контейнер для фіолетового фону
+// Контейнер з фіолетовим фоном
 .course-details-container {
   width: 100%;
-  padding: 7rem 10rem 0;
+  padding: 7rem 1rem 0;
   position: relative; 
   overflow: visible; 
 
-  .container {
-    @media (min-width: 1200px) {
+  @media (min-width: 768px) {
+    padding: 7rem 2rem 0;
+  }
+
+  @media (min-width: 1200px) {
+    padding: 7rem 3rem 0;
+    
+    .container {
       margin-right: $sidebar-reserve;
     }
   }
 }
 
-// Контейнер для білого фону
+// Контейнер з білим фоном
 .course-content-container {
   background: #ffffff;
 }
@@ -42,7 +47,11 @@ $sidebar-reserve: $sidebar-width + $sidebar-gap;
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 2rem;
+  padding: 0 1rem;
+  
+  @media (min-width: 768px) {
+    padding: 0 2rem;
+  }
 }
 
 main {
@@ -58,11 +67,10 @@ main {
   grid-column: 1;
 }
 
-// Sidebar 
+// Sidebar
 .course-sidebar {
    position: fixed;
    top: 6rem;
-
    right: calc((100vw - 1200px) / 2 - 2rem);
    width: $sidebar-width;
    background: #F7F6FF;
@@ -73,6 +81,10 @@ main {
    z-index: 1000; 
    overflow: visible;
 
+  // Сховуємо sidebar на мобільних
+  @media (max-width: 1024px) {
+    display: none;
+  }
   
   h3 {
     font-family: 'Inter', sans-serif;
@@ -163,6 +175,30 @@ main {
   }
 }
 
+// Загальні стилі для шрифтів на мобільних
+@media (max-width: 768px) {
+  .course-main-details,
+  .career-path,
+  .what-youll-learn,
+  .who-is-this-course-for,
+  .curriculum,
+  .author-of-course,
+  .course-certificate,
+  .you-might-also-like {
+    
+    // Всі заголовки 25px
+    h2, h3 {
+      font-size: 25px;
+    }
+    
+    // Весь інший текст 12px
+    p, li, span, .module-name, .module-hours,
+    .course-description p, .author-bio,
+    .benefits p, .course-level, .course-duration {
+      font-size: 12px;
+    }
+  }
+}
 
 // Course Main Details
 .course-main-details {
@@ -189,7 +225,6 @@ main {
       flex-shrink: 0;
     }
   }
-
 
   h2 {
     font-family: 'Inter', sans-serif;
@@ -225,17 +260,15 @@ main {
     }
   }
 
-@media (max-width: 1024px) {
-  .course-main-details {
+  @media (max-width: 1024px) {
     .course-header {
-      margin-top: 2rem;
       .course-label {
-        font-size: 13px;
+        font-size: 19px;
       }
       
       .pro-icon {
-        width: 14px;
-        height: 14px;
+        width: 54px;
+        height: 54px;
       }
     }
     
@@ -243,10 +276,8 @@ main {
       font-size: 32px;
     }
   }
-}
 
-@media (max-width: 768px) {
-  .course-main-details {
+  @media (max-width: 768px) {
     .course-header {
       gap: 0.5rem;
       
@@ -255,17 +286,11 @@ main {
       }
       
       .pro-icon {
-        width: 12px;
-        height: 12px;
+        width: 40px;
+        height: 40px;
       }
     }
-    
-    h2 {
-      font-size: 28px;
-    }
   }
-}
-
 }
 
 // Course Description
@@ -314,18 +339,34 @@ main {
     z-index: 1;
   }
 }
+
 .shape-white{
   width: 100px;
   height: 3rem;
   background-color: white;
 }
-// What You'll Learn & Who Is This Course For
-.what-youll-learn {
-  margin: 0 10rem;
-  border: 1px solid #D8D8D8;
-  width: 750px;
-  padding-top: 1rem;
 
+// What You'll Learn
+.what-youll-learn {
+  border: 1px solid #D8D8D8;
+  width: 100%;
+  max-width: 750px;
+  padding: 1rem;
+  
+  @media (max-width: 768px) {
+    margin: 0 auto;
+    width: 90%;
+    max-width: 350px;
+  }
+  
+  @media (min-width: 769px) and (max-width: 1199px) {
+    margin: 0 auto;
+  }
+  
+  @media (min-width: 1200px) {
+    margin: 0;
+    margin-left: 3rem;
+  }
   
   h2 {
     font-family: 'Inter', sans-serif;
@@ -335,6 +376,10 @@ main {
     letter-spacing: -5%;
     margin-bottom: 1.5rem;
     padding-top: 1rem;
+    
+    @media (max-width: 768px) {
+      font-size: 25px;
+    }
   }
   
   ul {
@@ -352,6 +397,12 @@ main {
       color: #000000;
       letter-spacing: -2%;
       
+      @media (max-width: 768px) {
+        font-size: 12px;
+        padding-left: 1.5rem;
+        line-height: 1.6;
+      }
+      
       &::before {
         content: '•';
         color: #5C50E1;
@@ -360,13 +411,19 @@ main {
         position: absolute;
         left: 0;
         top: -0.6rem;
+        
+        @media (max-width: 768px) {
+          font-size: 20px;
+          top: -0.4rem;
+        }
       }
     }
   }
 }
 
 .who-is-this-course-for {
-  padding: 2rem 2rem 0;
+  padding: 2rem 0rem 0;
+  margin-left: -12rem;
   
   h2 {
     font-family: 'Inter', sans-serif;
@@ -404,12 +461,21 @@ main {
   }
 }
 
-
-// Curriculum
+// Curriculum 
 .curriculum {
   margin-bottom: 2rem;
-  padding: 2rem 0rem 0rem 10rem;
+  padding: 2rem 9rem 0;
   max-width: 950px;
+  
+  @media (max-width: 768px) {
+    padding: 2rem 2rem 0;
+    max-width: 550px;
+  }
+  
+  @media (min-width: 1200px) {
+    margin: 0;
+    margin-left: -7rem;
+  }
   
   h2 {
     font-family: 'Inter', sans-serif;
@@ -456,6 +522,20 @@ main {
 // CTA Section
 .cta {
   text-align: left;
+  padding: 2rem 9rem 0;
+  max-width: 950px;
+
+  @media (max-width: 768px) {
+    padding: 2rem 2rem 0;
+    max-width: 450px;
+    text-align: center;
+  }
+  
+  @media (min-width: 1200px) {
+    margin: 0;
+    margin-left: -7rem;
+    max-width: 800px;
+  }
   
   p {
     font-family: 'Manrope', sans-serif;
@@ -488,7 +568,19 @@ main {
 // Author Section
 .author-of-course {
   margin-bottom: 3rem;
-  padding: 4rem 0 2rem 0rem;
+  padding: 4rem 9rem 2rem;
+  max-width: 1050px;
+  
+  @media (max-width: 768px) {
+    padding: 4rem 2rem 2rem;
+    max-width: 450px;
+  }
+  
+  @media (min-width: 1200px) {
+    margin: 0;
+    margin-left: -7rem;
+    max-width: 1100px;
+  }
   
   h2 {
     font-family: 'Inter', sans-serif;
@@ -513,18 +605,35 @@ main {
       align-items: flex-start;
       margin: 0;
       
+      @media (max-width: 768px) {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 1rem;
+      }
+      
       img {
         width: 152px;
         height: 180px;
         border-radius: 12px;
         object-fit: cover;
         flex-shrink: 0;
+        
+        @media (max-width: 768px) {
+          width: 120px;
+          height: 140px;
+        }
       }
       
       .author-info {
         flex: 1;
         display: flex;
         flex-direction: column;
+        
+        @media (max-width: 768px) {
+          width: 100%;
+          text-align: left;
+        }
         
         .author-header {
           margin-bottom: 1rem;
@@ -535,6 +644,11 @@ main {
             font-weight: 800;
             color: #1a1a1a;
             margin-bottom: 0.25rem;
+            
+            @media (max-width: 768px) {
+              font-size: 16px;
+              text-align: center;
+            }
           }
           
           .author-title {
@@ -543,6 +657,11 @@ main {
             font-weight: 600;
             color: #555;
             margin-bottom: 0.25rem;
+            
+            @media (max-width: 768px) {
+              font-size: 14px;
+              text-align: center;
+            }
           }
         }
         
@@ -553,6 +672,12 @@ main {
             line-height: 1.6;
             color: black;
             margin-bottom: 0.5rem;
+            
+            @media (max-width: 768px) {
+              font-size: 12px;
+              text-align: left;
+              width: 100%;
+            }
           }
           
           .read-more-btn {
@@ -567,6 +692,12 @@ main {
             font-weight: 800;
             cursor: pointer;
             padding: 0;
+            
+            @media (max-width: 768px) {
+              font-size: 12px;
+              justify-content: center;
+              margin-top: 0.5rem;
+            }
             
             &:hover {
               text-decoration: underline;
@@ -586,90 +717,26 @@ main {
   }
 }
 
-@media (max-width: 1024px) {
-  .author-of-course {
-    .author-card {
-      max-width: 100%;
-      
-      figure {
-        gap: 1.5rem;
-        
-        img {
-          width: 120px;
-          height: 135px;
-        }
-        
-        .author-info {
-          .author-header {
-            .author-name {
-              font-size: 1.25rem;
-            }
-          }
-        }
-      }
-    }
-  }
-}
-
-@media (max-width: 768px) {
-  .author-of-course {
-    padding: 3rem 0;
-    
-    h2 {
-      font-size: 28px;
-    }
-    
-    .author-card {
-      padding: 2rem;
-      
-      figure {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        gap: 1rem;
-        
-        img {
-          width: 95px;
-          height: 100px;
-        }
-        
-        .author-info {
-          .author-header {
-            margin-bottom: 1rem;
-            
-            .author-name {
-              font-size: 1.25rem;
-            }
-            
-            .author-title {
-              font-size: 0.875rem;
-            }
-          }
-          
-          .author-content {
-            .author-bio {
-              font-size: 0.875rem;
-              margin-bottom: 1rem;
-            }
-            
-            .read-more-btn {
-              font-size: 0.875rem;
-            }
-          }
-        }
-      }
-    }
-  }
-}
-
 // Certificate Section
 .course-certificate {
   margin-bottom: 2rem;
-  padding: 1rem 0;
+  padding: 1rem 9rem 0;
+  max-width: 950px;
+  
+  @media (max-width: 768px) {
+    padding: 1rem 2rem 0;
+    max-width: 450px;
+  }
+  
+  @media (min-width: 1200px) {
+    margin: 0;
+    margin-left: -7rem;
+    max-width: 1200px;
+  }
   
   .certificate-card {
     position: relative;
-    max-width: 750px; 
+    max-width: 750px;
   }
   
   .certificate-image {
@@ -757,77 +824,6 @@ main {
   }
 }
 
-@media (max-width: 1024px) {
-  .course-certificate {
-    .certificate-card {
-      max-width: 100%; 
-    }
-    
-    .certificate-info {
-      h2 {
-        font-size: 32px;
-      }
-    }
-  }
-}
-
-@media (max-width: 768px) {
-  .course-certificate {
-    padding: 3rem 0;
-    
-    .certificate-card {
-      padding: 2rem;
-    }
-    
-    .certificate-image {
-      margin-bottom: 2rem;
-    }
-    
-    .certificate-info {
-      h2 {
-        font-size: 28px;
-      }
-      
-      .button-cta {
-        display: block;
-        width: 100%;
-        margin: 0 0 2rem 0;
-      }
-      
-      .benefits {
-        flex-direction: column;
-        gap: 1.5rem;
-        
-        .benefits-column {
-          gap: 0.75rem;
-          
-          p {
-            font-size: 0.875rem;
-          }
-        }
-      }
-    }
-  }
-}
-
-@media (max-width: 480px) {
-  .course-certificate {
-    .certificate-info {
-      h2 {
-        font-size: 24px;
-      }
-      
-      .benefits {
-        .benefits-column {
-          p {
-            font-size: 0.8rem;
-          }
-        }
-      }
-    }
-  }
-}
-
 // You Might Also Like Section
 .you-might-also-like {
   padding: 2rem 0 4rem;
@@ -836,18 +832,27 @@ main {
   
   .container {
     max-width: 1400px;
-    margin-left: 7rem;
-    padding: 0 2rem;
+    margin: 0 auto;
+    padding: 0 1rem;
+    
+    @media (min-width: 1200px) {
+      margin-left: 1rem;
+      padding: 0 2rem;
+    }
   }
   
   h2 {
-    padding-left: 3rem;
+    padding-left: 0;
     font-family: 'Inter', sans-serif;
     font-size: 36px;
     font-weight: 500;
     color: #000000;
     letter-spacing: -5%;
-    text-align: left; 
+    text-align: left;
+    
+    @media (min-width: 768px) {
+      padding-left: 0rem;
+    }
   }
   
   .courses-carousel {
@@ -855,46 +860,6 @@ main {
     align-items: center;
     gap: 1.5rem;
     position: relative;
-  }
-  
-  .nav-button {
-    background: #ffffff;
-    border: 2px solid #5C50E1;
-    border-radius: 50%;
-    width: 48px;
-    height: 48px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    flex-shrink: 0;
-    
-    &:hover {
-      background: #5C50E1;
-      
-      svg path {
-        stroke: #ffffff;
-      }
-    }
-    
-    &:disabled {
-      opacity: 0.5;
-      cursor: not-allowed;
-      
-      &:hover {
-        background: #ffffff;
-        
-        svg path {
-          stroke: #5C50E1;
-        }
-      }
-    }
-    
-    svg {
-      width: 20px;
-      height: 20px;
-    }
   }
   
   .courses-container {
@@ -915,7 +880,7 @@ main {
     border: 1px solid #e0e0e0;
     border-radius: 16px;
     padding: 2rem;
-    min-width: 340px; // як у макеті
+    min-width: 340px;
     max-width: 340px;
     transition: all 0.3s ease;
     flex-shrink: 0;
@@ -994,196 +959,8 @@ main {
   }
 }
 
-@media (max-width: 1024px) {
-  .you-might-also-like {
-    .container {
-      padding: 0 1.5rem;
-    }
-    
-    h2 {
-      font-size: 32px;
-    }
-    
-    .courses-carousel {
-      gap: 1rem;
-    }
-    
-    .course-card {
-      min-width: 280px;
-      padding: 1.5rem;
-      
-      h3 {
-        font-size: 20px;
-      }
-    }
-  }
-}
-
 @media (max-width: 768px) {
-  .you-might-also-like {
-    padding: 3rem 0;
-    
-    .container {
-      padding: 0 1rem;
-    }
-    
-    h2 {
-      font-size: 28px;
-      text-align: center; 
-      margin-bottom: 2rem;
-    }
-    
-    .courses-carousel {
-      flex-direction: column;
-      gap: 1rem;
-    }
-    
-    .nav-button {
-      display: none; 
-    }
-    
-    .courses-container {
-      justify-content: flex-start; 
-      padding: 0.5rem 0;
-    }
-    
-    .course-card {
-      min-width: 260px;
-      
-      h3 {
-        font-size: 18px;
-      }
-      
-      .course-meta {
-        gap: 1rem;
-        
-        .course-level,
-        .course-duration {
-          font-size: 0.8rem;
-        }
-      }
-      
-      .course-description {
-        font-size: 0.8rem;
-      }
-    }
-  }
-}
-
-// Для дуже маленьких екранів
-@media (max-width: 480px) {
-  .you-might-also-like {
-    h2 {
-      font-size: 24px;
-    }
-    
-    .course-card {
-      min-width: 240px;
-      padding: 1.25rem;
-    }
-  }
-}
-
-
-@media (max-width: 1024px) {
-  .course-main-container {
-    padding: 1.5rem 0;
-    padding-top: 3.5rem;
-  }
-
-  .course-sidebar {
-    position: static;
-    width: 100%;
-    max-width: 400px;
-    margin: 2rem auto;
-    right: auto;
-    left: auto;
-  }
-}
-
-@media (max-width: 768px) {
-  .course-main-container {
-    padding-top: 4.25rem;
-  }
-
   .course-details-container {
-    padding: 1rem 0 1rem;
-  }
-  
-  .course-main-details h2 {
-    font-size: 2rem;
-  }
-  
-  .career-path {
-    padding: 2rem 0;
-  }
-  
-  .cta {
-    padding: 2rem 1.5rem;
-    
-    p {
-      font-size: 1.25rem;
-    }
-  }
-  
-  .author-of-course figure {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    
-    img {
-      width: 95px;
-      height: 100px;
-    }
-  }
-  
-  .you-might-also-like nav {
-    flex-direction: column;
-    gap: 0.75rem;
-    
-    article {
-      min-width: 280px;
-    }
-  }
-  
-  .course-certificate .benefits {
-    grid-template-columns: 1fr;
-  }
-  
-  .course-sidebar .course-icons {
-    flex-direction: column;
-    gap: 0.75rem;
-  }
-  
-  .container {
-    padding: 0 1rem;
-  }
-  
-  .what-youll-learn,
-  .who-is-this-course-for,
-  .curriculum,
-  .author-of-course,
-  .course-certificate,
-  .you-might-also-like {
-    padding: 3rem 0;
-  }
-}
-
-@media (max-width: 480px) {
-  .course-main-details h2 {
-    font-size: 1.75rem;
-  }
-  
-  .cta {
-    padding: 1.5rem 1rem;
-    
-    p {
-      font-size: 1.125rem;
-    }
-  }
-  
-  .you-might-also-like nav article {
-    min-width: 250px;
-    padding: 1rem;
+    padding: 5rem 1rem 0;
   }
 }
